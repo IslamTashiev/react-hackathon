@@ -1,0 +1,21 @@
+.btn{
+    background: #2A5275;
+    border-radius: 4px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.btn:hover{
+    background-color: #285882;
+}
+.btn:active{
+    transform: translateY(1px);
+    transition: all .1s ease;
+}
+.header__btn{
+    padding: 16px 26px;
+}
