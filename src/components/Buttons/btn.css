@@ -1,0 +1,14 @@
+.btn {
+    background-color: #2a5275;
+    padding: 13px 75px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.btn span {
+    font-family: "Exo 2";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}

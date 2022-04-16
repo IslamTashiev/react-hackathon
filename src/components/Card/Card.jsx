@@ -6,10 +6,7 @@ import "./card.css"
 const card = () => {
     return (
         <div className='card'>
-            <div className="container">
-                <h1>Оформление заказа</h1>
-                <UrOrder />
-            </div>
+            <UrOrder />
         </div>
     )
 }

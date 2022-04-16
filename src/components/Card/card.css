@@ -1,4 +1,13 @@
+.CardPage {
+    display: flex;
+}
+.cardpage {
+    position: absolute;
+    top: 80px;
+    left: 15px;
+}
 .card {
+    position: relative;
     margin: 120px 0 50px;
 }
 .ur-order {
@@ -28,7 +37,7 @@
     cursor: pointer;
 }
 .count {
-    margin: 0 5px;
+    margin: 0 20px;
     border: 1px solid #c8cacb;
     border-radius: 4px;
     padding: 13px 20px;
@@ -44,9 +53,13 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 30px;
+    border-bottom: 1px solid #c8cacb;
 }
 .item-content:first-child {
     margin: 0;
+}
+.item-content:last-child {
+    border: none;
 }
 .ur-content {
     width: 800px;
@@ -64,4 +77,10 @@
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+}
+.total-count {
+    font-family: "Exo 2";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
 }
