@@ -1,10 +1,14 @@
 import React from "react";
-import Card from "./components/Card/Card";
-import SideBar from "./components/Card/SideBar";
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./views/HomePage";
 
 function App() {
   return (
-   <div></div>
+    <div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </div>
   );
 }
 
