@@ -5,7 +5,6 @@
     margin: 0 20px;
     width: 420px;
     height: 350px;
-    margin-top: 150px;
 }
 .other {
     display: flex;
@@ -63,8 +62,10 @@
     font-size: 36px;
 }
 .card-checkbox {
-    margin: 20px 0px;
+    margin: 10px 0px;
+    display: flex;
 }
+
 .bar-btn {
     background-color: #2a5275;
     padding: 13px 75px;
@@ -76,4 +77,9 @@
     cursor: pointer;
     align-items: center;
     justify-content: center;
+}
+.card-input {
+    width: 30px;
+    height: 17px;
+    margin: 0 5px;
 }

@@ -1,17 +1,16 @@
 import React from "react";
+import AirDatepicker from "air-datepicker";
 
 const Date = () => {
   return (
-    <div>
-      <div className="receiving">
-        <div className="four wide field">
-          <label>Дата</label>
-          <input type="date" />
-        </div>
-        <div className="four wide field">
-          <label>Время</label>
-          <input type="time" />
-        </div>
+    <div className="data">
+      <div className="data-content">
+        <span>Дата</span>
+        <input className="data-input" type="date"></input>
+      </div>
+      <div className="data-content">
+        <span>Дата</span>
+        <input className="data-input" type="time"></input>
       </div>
     </div>
   );

@@ -2,30 +2,24 @@ import React from "react";
 
 const Address = () => {
   return (
-    <>
-      <div>
-        <div className="field">
-          <div className="fields">
-            <div className="twelve wide field">
-              <label>Улица, дом/корпус</label>
-              <input
-                type="text"
-                name="shipping[address]"
-                placeholder="Название улицы"
-              />
-            </div>
-            <div className="four wide field">
-              <label>Квартира</label>
-              <input
-                type="number"
-                name="shipping[address-2]"
-                placeholder="Номер квартиры"
-              />
-            </div>
-          </div>
-        </div>
+    <div className="address">
+      <div className="address-content">
+        <span>Улица, дом/корпус</span>
+        <input
+          className="address-input"
+          placeholder="Ваш адрес"
+          type="text"
+        ></input>
       </div>
-    </>
+      <div className="address-content">
+        <span>Квартира</span>
+        <input
+          className="address-input"
+          placeholder="Номер квартиры"
+          type="text"
+        ></input>
+      </div>
+    </div>
   );
 };
 

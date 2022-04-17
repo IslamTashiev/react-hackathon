@@ -16,13 +16,15 @@ const Receiving = () => {
   };
 
   return (
-    <form className="ui form receiving-from">
+    <form className="receiving-from">
       <h2>Способ получения</h2>
       {showReceiving ? (
         <>
           <Location />
-          <Date />
-          <Address />
+          <div className="receiving-for-form">
+            <Date />
+            <Address />
+          </div>
           <Comment />
           <NextBtn />
         </>

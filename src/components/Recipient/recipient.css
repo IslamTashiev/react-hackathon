@@ -4,24 +4,39 @@
     padding: 30px;
     margin: 20px 0;
 }
-.ui.form .inline.fields .field {
+.full-name-content {
     display: flex;
+}
+.full-name {
     flex-direction: column;
     width: 100%;
-}
-.ui.form .fields {
-    width: 100%;
-}
-.checkbox-box {
     display: flex;
-    justify-self: center;
-    align-items: center;
-    margin: 20px 0;
+    margin: 0 5px 0 5px;
 }
-.checkbox-box input {
-    background-color: #4878a6;
+.full-name-input {
+    outline: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid #eaeaf0;
+    height: 48px;
+}
+.gmail {
+    display: flex;
+    margin-top: 20px;
+}
+.gmail-content {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    margin: 0 5px 0 5px;
+}
+.recipient-checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.recipient-input {
     width: 17px;
-    height: 17px;
     margin: 0 5px;
-    border: 1px solid #fff;
+    height: 17px;
 }

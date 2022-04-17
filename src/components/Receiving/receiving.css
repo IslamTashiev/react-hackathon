@@ -7,11 +7,63 @@
 .receiving {
     display: flex;
 }
-.ui .form .four .wide .field {
-    width: 50% !important;
-    margin: 0 5px;
+.receiving-for-form {
+    display: flex;
+    align-items: center;
 }
-.text-comment {
+.location-content {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+.location-dropdown {
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+.delivery-content {
+    display: flex;
+    flex-direction: column;
+}
+.data {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 10px 0 0;
+}
+.data-content {
+    margin: 20px 0;
+    flex-direction: column;
+    display: flex;
+}
+.data-input {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid #eaeaf0;
+    height: 48px;
+}
+.address {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 0 0 10px;
+}
+.address-content {
+    margin: 20px 0;
+    flex-direction: column;
+    display: flex;
+}
+.address-input {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid #eaeaf0;
+    height: 48px;
+}
+.textAddress {
     resize: none;
-    margin: 0 0 20px;
+    width: 100%;
+    height: 80px;
+    border-radius: 7px;
+    padding: 10px;
+    outline: none;
 }

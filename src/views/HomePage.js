@@ -1,14 +1,12 @@
 import React from "react";
-import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
-import { JustSlider } from "../components/JustSlider/JustSlider";
+import Contact from "../components/Contact/Contact";
 
 export const HomePage = () => {
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Header />
-      <JustSlider />
-      <Footer />
+      <Contact />
     </div>
   );
 };

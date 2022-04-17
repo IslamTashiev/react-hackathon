@@ -1,6 +1,6 @@
 import React from "react";
 import NextBtn from "../Card/Next-btn";
-import EditBtn from "../Card/EditBtn.js"
+import EditBtn from "../Card/EditBtn.js";
 
 import "./pay.css";
 
@@ -16,7 +16,7 @@ const Pay = () => {
         <h2>Способ оплаты</h2>
         {showPay ? (
           <>
-            <select name="skills" multiple="" className="ui fluid dropdown">
+            <select name="skills" multiple="" className="pay-content">
               <option value="">Наличными</option>
               <option value="angular">Картой</option>
             </select>
@@ -24,8 +24,7 @@ const Pay = () => {
           </>
         ) : (
           <div onClick={closeBlock}>
-              <EditBtn />
-              Нажми сюда
+            <EditBtn />
           </div>
         )}
       </div>

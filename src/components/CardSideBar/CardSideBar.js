@@ -22,13 +22,11 @@ const CardSideBar = () => {
       <buton className="bar-btn">
         <span>Оформить заказ</span>
       </buton>
-      <div className="card-checkbox">
-        <div class="ui checkbox">
-          <input type="checkbox" name="example" />
-          <label>
-            Подтверждая заказ, я принимаю условия пользовательского соглашения
-          </label>
-        </div>
+      <div class="card-checkbox">
+        <input className="card-input" type="checkbox" />
+        <label>
+          Подтверждая заказ, я принимаю условия пользовательского соглашения
+        </label>
       </div>
     </div>
   );
