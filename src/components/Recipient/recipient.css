@@ -1,0 +1,27 @@
+.recipient {
+    border: 1px solid #c8cacb;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 20px 0;
+}
+.ui.form .inline.fields .field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ui.form .fields {
+    width: 100%;
+}
+.checkbox-box {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.checkbox-box input {
+    background-color: #4878a6;
+    width: 17px;
+    height: 17px;
+    margin: 0 5px;
+    border: 1px solid #fff;
+}

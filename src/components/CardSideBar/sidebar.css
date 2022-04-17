@@ -65,3 +65,15 @@
 .card-checkbox {
     margin: 20px 0px;
 }
+.bar-btn {
+    background-color: #2a5275;
+    padding: 13px 75px;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: flex;
+    border: none;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}

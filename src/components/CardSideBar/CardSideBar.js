@@ -19,7 +19,9 @@ const CardSideBar = () => {
   return (
     <div className="card-side-bar">
       <Item sibeBars={sibeBars} />
-      <Nextbtn />
+      <buton className="bar-btn">
+        <span>Оформить заказ</span>
+      </buton>
       <div className="card-checkbox">
         <div class="ui checkbox">
           <input type="checkbox" name="example" />
