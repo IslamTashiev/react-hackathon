@@ -37,7 +37,7 @@ export const NavBar = () => {
                   fill='white'
                 />
               </svg>
-              Каталог товаров
+              <p>Каталог товаров</p>
             </div>
             <CatologDropdown isActive={showDropdown} />
           </div>

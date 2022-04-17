@@ -70,7 +70,7 @@ export const CatologDropdown = ({ isActive }) => {
   console.log(isActive);
 
   return (
-    <div className={`catalog__dropdown ${!isActive ? "active" : ""}`}>
+    <div className={`catalog__dropdown ${isActive ? "active" : ""}`}>
       {renderedItem}
     </div>
   );
