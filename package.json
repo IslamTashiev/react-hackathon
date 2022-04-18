@@ -9,8 +9,12 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+<<<<<<< HEAD
     "react-geocode": "^0.2.3",
     "react-google-autocomplete": "^2.6.1",
+=======
+    "react-responsive-carousel": "^3.2.23",
+>>>>>>> a0a1871ea6299886262e272448ed10209cbead5b
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

@@ -6,6 +6,8 @@ const Nextbtn = () => {
             <button className="netx">
                 <span>Далее</span>
             </button>
+
+       
         </div>
     )
 }
