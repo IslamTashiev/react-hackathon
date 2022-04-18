@@ -1,6 +1,6 @@
-.contact {
+/* .contact {
   margin: 120px 0 50px;
-}
+} */
 .contact__name{
     font-family: 'Exo 2';
     font-style: normal;
@@ -258,3 +258,4 @@
 .checkbox__input:checked + .checkbox__label:after {
   opacity: 1;
 }
+

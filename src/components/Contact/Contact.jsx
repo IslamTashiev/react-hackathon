@@ -1,9 +1,10 @@
 import React from 'react'
 import "./style.css"
-import ContactsForm from './ContactsForm'
 import Item from './Item'
 import mail from "../../assets/images/mail.svg";
 import clock from "../../assets/images/clock.svg";
+
+
 const items = [
     {
         title: "СПб, Ул. Дыбенко д.23 к.1 ",
@@ -27,8 +28,7 @@ const Contact = () => {
     return (
        <div className="contact">
         <div className='container'>
-         <h2 className='contact__name'>Контакты</h2>
-          <div className='cobtact__items'>
+          <div className='contact__items'>
             <div className="contact__conditions">
            <Item items={items} key={items.id}/>
             <hr/>
@@ -48,8 +48,7 @@ const Contact = () => {
             </div>
         </div>
       </div>
-    <ContactsForm />
-          </div>
+    </div>
  </div>
 </div>
 )}
