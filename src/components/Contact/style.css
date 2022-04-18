@@ -44,6 +44,11 @@
       font-size: 22px; 
     }
   }
+  .contact__items {
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+  }
     .contact__remark {
       margin-bottom: 10px;
     }
@@ -155,11 +160,11 @@
 .contacts {
  margin-top: 30px;
 }
-
-  .contact__items {
-    width: 35%;
+  .contact-items {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 60px;
   }
   @media (max-width: 726px) {
     .contact__items {

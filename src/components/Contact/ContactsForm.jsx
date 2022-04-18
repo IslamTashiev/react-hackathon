@@ -8,7 +8,7 @@ const ContactsForm = () => {
      <div className="container">
      <div className="contacts__wrap">
       <h2 className='contact__name'>Связаться с нами</h2>
-       <div className="contact__items">
+       <div className="contact-items">
          <div className='contact__item1'>
           <div className="contact-form">
              <h3>Имя</h3>
