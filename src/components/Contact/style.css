@@ -12,20 +12,16 @@
    }
    .contact__conditions {
     width: 100%;
-    /* width: 420px; */
     background: #EDF2F6;
     border-radius: 15px;
     padding-top: 20px;
     cursor: pointer;
-    margin-right: 20px;
   }
     .contact__condition_item {
      display: flex;
-      padding: 15px 30px;
+      padding: 15px 20px;
       background: #EDF2F6;
-      z-index: 1;
       justify-content: space-between;
-
     }
    .contact__title {  
     font-style: normal;
@@ -43,6 +39,11 @@
     line-height: 100%;
     color: #2A5275;
    }
+   @media (max-width: 769px) { 
+    .contact__subtitle {
+      font-size: 22px; 
+    }
+  }
     .contact__remark {
       margin-bottom: 10px;
     }
@@ -58,11 +59,11 @@
     .prev{
       opacity: 0;
     }
-    @media (max-width: 726px) {
+    /* @media (max-width: 726px) {
       .prev{
        display: none;
        }
-      }
+      } */
     .contact-img:hover .prev {
       opacity: 1.0;
     }
@@ -75,13 +76,13 @@
       }
       
     .adress{
-    padding: 25px 0 10px 30px;
+    padding: 20px 20px 0px 20px;
     display: flex;
     flex-direction: column; 
-     }
+    }
      @media (max-width: 726px) {
       .adress{
-        padding: 15px 0 10px 15px;
+        padding: 15px 15px 10px 15px;
        }
       }
     hr {
@@ -109,6 +110,11 @@
         font-size: 20px;
         line-height: 100%;
         color: #2A5275;
+    }
+    @media (max-width: 769px) { 
+      .adress__mail {
+        font-size: 18px; 
+      }
     }
     .adress__subtitle{
         font-family: 'Exo 2';
@@ -140,16 +146,27 @@
          max-width: 100%;
         margin-right: 0px;
         }
-        .contact__condition_item {
-        }
+        /* .contact__condition_item {
+        } */
      }
 
-  .contacts {
-    margin-top: 30px;
-  }
+
+
+.contacts {
+ margin-top: 30px;
+}
+
   .contact__items {
+    width: 35%;
     display: flex;
     flex-wrap: wrap;
+  }
+  @media (max-width: 726px) {
+    .contact__items {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      }
   }
   .contact__item1 {
     width: 28%;
@@ -212,6 +229,7 @@
 }
 
 .checkbox__label {
+  position: absolute;
   padding-left: 33px;
   cursor: pointer;
   font-style: normal;
@@ -269,3 +287,17 @@
   opacity: 1;
 }
 
+
+.contact__row{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+@media (max-width: 726px) {
+  .contact__row {
+      width: 100%;
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+      margin-bottom: 40px;
+  }
+}

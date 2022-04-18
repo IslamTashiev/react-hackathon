@@ -4,6 +4,7 @@ import Contact from "../components/Contact/Contact";
 import ContactsForm from '../components/Contact/ContactsForm';
 import Map from '../components/Contact/Map';
 import { useJsApiLoader } from "@react-google-maps/api";
+import { Footer } from "../components/Footer/Footer";
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
