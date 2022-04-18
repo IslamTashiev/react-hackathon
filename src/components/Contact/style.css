@@ -11,12 +11,13 @@
     margin-bottom: 30px;
    }
    .contact__conditions {
-    width: 420px;
+    width: 100%;
+    /* width: 420px; */
     background: #EDF2F6;
-    /* box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15); */
     border-radius: 15px;
     padding-top: 20px;
     cursor: pointer;
+    margin-right: 20px;
   }
     .contact__condition_item {
      display: flex;
@@ -45,6 +46,11 @@
     .contact__remark {
       margin-bottom: 10px;
     }
+    @media (max-width: 726px) { 
+      .contact__remark {
+        margin-bottom: 0;
+      }
+    }
     .contact__remark:hover {
        background: #DAE4ED;
         margin-bottom: 10px;
@@ -52,6 +58,11 @@
     .prev{
       opacity: 0;
     }
+    @media (max-width: 726px) {
+      .prev{
+       display: none;
+       }
+      }
     .contact-img:hover .prev {
       opacity: 1.0;
     }
@@ -62,11 +73,17 @@
       padding: 4px 10px 0px 0px;
         justify-content: space-between;
       }
+      
     .adress{
     padding: 25px 0 10px 30px;
     display: flex;
     flex-direction: column; 
      }
+     @media (max-width: 726px) {
+      .adress{
+        padding: 15px 0 10px 15px;
+       }
+      }
     hr {
         margin-top: 20px;
         border: 0.5px solid #C8CACB;
@@ -89,7 +106,7 @@
         font-family: 'Exo 2';
         font-style: normal;
         font-weight: 600;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 100%;
         color: #2A5275;
     }
@@ -105,7 +122,7 @@
         font-family: 'Exo 2';
         font-style: normal;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 100%;
         color: #070C11;
         margin-top: 10px;
@@ -120,17 +137,10 @@
     }
     @media (max-width: 726px) {
        .contact__conditions{
-          width: 100%;
-          margin-top: 10px;
+         max-width: 100%;
+        margin-right: 0px;
         }
         .contact__condition_item {
-          max-height: 55px;
-          align-items: center;
-        }
-        .contact__condition_item {
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 22px;
         }
      }
 

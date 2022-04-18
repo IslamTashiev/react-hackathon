@@ -1,12 +1,20 @@
 .container__map {
 margin: 5px 0px 20px 0px;
-width: 60% ;
-border-radius: 20px;
+width: 75% ;
 }
 .contact__row{
     display: flex;
     margin-top: 20px;
   }
-  .container_contact{
-margin: 120px 0 50px;
+.container_contact{
+ margin: 120px 0 50px;
+}
+
+@media (max-width: 726px) {
+    .contact__row {
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        margin-bottom: 40px;
+    }
   }

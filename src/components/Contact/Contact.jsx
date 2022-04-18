@@ -26,10 +26,7 @@ const items = [
 
 const Contact = () => {
     return (
-       <div className="contact">
-        <div className='container'>
-          <div className='contact__items'>
-            <div className="contact__conditions">
+          <div className="contact__conditions">
            <Item items={items} key={items.id}/>
             <hr/>
             <div className="adress">
@@ -48,9 +45,6 @@ const Contact = () => {
             </div>
         </div>
       </div>
-    </div>
- </div>
-</div>
 )}
 
 export default Contact

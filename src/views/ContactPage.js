@@ -22,7 +22,6 @@ const ContactPage = () => {
   return (
     <div>
       <Header />
-      <div className="contact">
          <div className='container'>
            <div className="container_contact">
            <h2 className='contact__name'>Контакты</h2>
@@ -37,7 +36,6 @@ const ContactPage = () => {
     </div>
    {/* <Footer/> */}
   </div>
-</div>
 )};
 
 export default ContactPage;
