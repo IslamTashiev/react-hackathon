@@ -3,7 +3,7 @@ import React from "react";
 import giroIcon from "../../assets/card/gi.svg";
 
 const Item = ({ items }) => {
-// <<<<<<< islam-O
+    // <<<<<<< islam-O
 
     const rederedOrder = items.map(item => {
         return (
@@ -28,7 +28,7 @@ const Item = ({ items }) => {
             </div>
         )
     })
-  return <>{rederedOrder}</>;
+    return <>{rederedOrder}</>;
 };
 
 export default Item;
