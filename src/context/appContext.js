@@ -3,6 +3,8 @@ import { createContext, useReducer } from "react";
 
 const INITIAL_STATE = {
   products: [],
+  detailProduct: null,
+  cart: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -11,6 +13,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         products: action.payload,
+      };
+    case "SET_PRODUCT_DETAIL":
+      return {
+        ...state,
+        detailProduct: action.payload,
       };
 
     default:
@@ -22,13 +29,21 @@ export const appContext = createContext();
 const URL = "http://localhost:8080";
 
 export default function AppContextProvider({ children }) {
-  const [state, dispach] = useReducer(reducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   const fetchProducts = async () => {
     const { data } = await axios.get(`${URL}/products`);
 
-    dispach({
+    dispatch({
       type: "SET_PRODUCTS",
+      payload: data,
+    });
+  };
+  const fetchProductDetail = async (id) => {
+    const { data } = await axios.get(`${URL}/products/${id}`);
+
+    dispatch({
+      type: "SET_PRODUCT_DETAIL",
       payload: data,
     });
   };
@@ -37,7 +52,9 @@ export default function AppContextProvider({ children }) {
     <appContext.Provider
       value={{
         products: state.products,
+        detailProduct: state.detailProduct,
         fetchProducts,
+        fetchProductDetail,
       }}>
       {children}
     </appContext.Provider>

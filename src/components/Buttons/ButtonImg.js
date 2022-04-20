@@ -1,5 +1,9 @@
 import React from "react";
 
-export const ButtonImg = () => {
-  return <div>ButtonImg</div>;
+export const ButtonImg = ({ image, defaultClassName }) => {
+  return (
+    <div className={`btn  image ${defaultClassName ? defaultClassName : ""}`}>
+      <img src={image} />
+    </div>
+  );
 };
