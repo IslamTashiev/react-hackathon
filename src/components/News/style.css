@@ -1,4 +1,4 @@
- .news__item {
+.news__item {
     width: 100%;
     background: #EDF2F6;
     border-radius: 8px;
@@ -6,7 +6,7 @@
     transition: 0.3s all ease;
     margin: 20px 20px 20px 0px;
   }
-  @media (max-width: 530px) {
+@media (max-width: 530px) {
     .news__item{
       margin: 20px auto;
      }
@@ -30,48 +30,47 @@
     padding: 20px;
   }
 }
-  .news__image{
+.news__image{
    max-width: 100%;
   }
 
-  .news-img {
+.news-img {
     display: block;
     width: 150px;
     margin-right: 20px;
   }
-  @media (max-width: 530px) {
+@media (max-width: 530px) {
     .news-img{
       display: none;
      }
   }
 
-  .mobile-img {
+.mobile-img {
     display: none;
   }
-  @media (max-width: 530px) {
+@media (max-width: 530px) {
     .mobile-img {
       max-width: 100%;
       display: block;
       margin-bottom: 20px;
      }
   }
-    .news__container {
+.news__container {
       margin: 0 auto;
       gap: 16px;
       overflow: hidden;
     }
-      .news:first-child {
+.news:first-child {
         margin-left: 16px;
       }
-      .news:hover {
+.news:hover {
         box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.6);
       }
-    .news__header {
+.news__header {
       display: flex;
       padding-bottom: 20px;
     }
-
-    .news__title {
+.news__title {
       font-family: 'Exo 2';
       font-style: normal;
       font-weight: 700;
@@ -79,15 +78,13 @@
       line-height: 120%;
        color: #070C11;
     }
-  
-    .news__weight {
+.news__weight {
       font-style: normal;
       font-size: 12px;
       line-height: 14px;
       color: #ffffff;
     }
-  
-    .news__subtitle {
+.news__subtitle {
       font-family: 'Exo 2';
       font-style: normal;
       font-weight: 400;
@@ -96,13 +93,12 @@
       color: #070C11;
       padding-bottom: 30px;
     }
-  
-    .news__footer {
+.news__footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-  .news__ar{
+.news__ar{
     font-family: 'Exo 2';
 font-style: normal;
 font-weight: 500;
@@ -110,11 +106,11 @@ font-size: 16px;
 line-height: 120%;
 color: #2A5275;
   }
-  .news__ar-svg {
+.news__ar-svg {
   margin: 0px 5px -1px;
   align-items: center;
   }
-    .news__data {
+.news__data {
       font-family: 'Exo 2';
       font-style: normal;
       font-weight: 500;
@@ -122,10 +118,10 @@ color: #2A5275;
       line-height: 120%;
       color: #838688;
     }
-  .col-6 {
+.col-6 {
     width: 50%;
   }
-  @media (max-width: 1025px) {
+@media (max-width: 1025px) {
     .col-6 {
       width: 100%;
     }
