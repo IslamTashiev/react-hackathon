@@ -8,7 +8,8 @@ const NewsItem = ({items}) => {
         <div class="news__item">
          <div className="news-order">
          <div class="news__image">
-         <img  src={item.image} />
+         <img className='news-img'  src={item.image} />
+         <img className='mobile-img' src={item.imagemobile} />
               </div>
                 <div class="news__description">
 
