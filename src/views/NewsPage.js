@@ -1,14 +1,19 @@
 import React from "react";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
-// import { JustSlider } from "../components/JustSlider/JustSlider";
+import NewsList from "../components/News/NewsList";
 
-export const HomePage = () => {
+const NewsPage = () => {
   return (
     <div className='wrapper'>
       <Header />
-      {/* <JustSlider /> */}
+     <div className="container">
+     <h1>Новости</h1>
+     <NewsList/>
+     </div>
       <Footer />
     </div>
   );
 };
+
+export default NewsPage;

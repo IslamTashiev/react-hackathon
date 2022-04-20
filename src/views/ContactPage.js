@@ -13,7 +13,6 @@ const defaultCenter = {
   lng: 30.337844
 };
 
-
 const ContactPage = () => {
   const { isLoaded } = useJsApiLoader ({
     id: 'google-map-script',
@@ -25,7 +24,7 @@ const ContactPage = () => {
       <Header />
          <div className='container'>
            <div className="container_contact">
-           <h2 className='contact__name'>Контакты</h2>
+           <h1 className='contact__name'>Контакты</h1>
           <div className="contact__row">
            <div className='contact__items'>
            <Contact />

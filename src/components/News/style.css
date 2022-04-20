@@ -1,0 +1,117 @@
+ .news__item {
+    width: 100%;
+    background: #EDF2F6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    margin: 20px 20px 20px 0px;
+  }
+.news__items {
+    display: flex;
+    flex-wrap: wrap;
+    }
+.news-order {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+  .news__image{
+   max-width: 100%;
+   width: 150px;
+   margin-right: 20px;
+  }
+
+    .news__container {
+      margin: 0 auto;
+      max-width: 1500px;
+      gap: 16px;
+      overflow: hidden;
+    }
+      /* @media (max-width: 690px) {
+        .col-4 {
+          margin: 0px 15px 0px 0px;
+          width: 100%;
+          align-items: center;
+        }
+        img {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 330px) {
+        .col-4 {
+          margin: 0px 15px 0px 0px;
+          width: 100%;
+          align-items: center;
+        }
+        img {
+          max-width: 100%;
+        }
+      } */
+      
+      .news:first-child {
+        margin-left: 16px;
+      }
+      .news:hover {
+        box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.6);
+      }
+    .news__header {
+      display: flex;
+      padding-bottom: 20px;
+    }
+
+    .news__title {
+      font-family: 'Exo 2';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 120%;
+       color: #070C11;
+    }
+  
+    .news__weight {
+      font-style: normal;
+      font-size: 12px;
+      line-height: 14px;
+      color: #ffffff;
+    }
+  
+    .news__subtitle {
+      font-family: 'Exo 2';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;    
+      color: #070C11;
+      padding-bottom: 30px;
+    }
+  
+    .news__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  .news__ar{
+    font-family: 'Exo 2';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 120%;
+color: #2A5275;
+  }
+  .news__ar-svg {
+  margin: 0px 5px -1px;
+  align-items: center;
+  }
+    .news__data {
+      font-family: 'Exo 2';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 120%;
+      color: #838688;
+    }
+  .col-6 {
+    width: 50%;
+  }
+  
