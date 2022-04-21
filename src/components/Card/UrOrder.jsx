@@ -47,7 +47,7 @@ const UrOrder = () => {
                     <div className='ur-order'>
                         <div className='ur-content'>
                             <Item items={items} />
-                            <Nextbtn />
+                            <Nextbtn  />
                         </div>
                     </div>
                 ) : (

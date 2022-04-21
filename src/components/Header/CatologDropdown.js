@@ -67,6 +67,7 @@ export const CatologDropdown = ({ isActive }) => {
       </div>
     );
   });
+  console.log(isActive);
 
   return (
     <div className={`catalog__dropdown ${isActive ? "active" : ""}`}>

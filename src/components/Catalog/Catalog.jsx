@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SortBar from "./SortBar";
-import FilterIcon from "../../assets/images/filter-icon.svg";
+// import FilterIcon from "../../assets/images/filter-icon.svg";
 import "./style.css";
 
 const Catalog = () => {
@@ -17,7 +17,7 @@ const Catalog = () => {
         <div className="catalog__filter">
           <div onClick={handleOpenDropdown} className="catalog__filter-button">
             <div>
-              <img className="catalog__filter-button-img" src={FilterIcon} />
+              <img className="catalog__filter-button-img" src="{FilterIcon}" />
               Фильтры
             </div>
           </div>

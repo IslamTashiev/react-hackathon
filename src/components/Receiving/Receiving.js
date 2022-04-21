@@ -3,10 +3,10 @@ import Location from "./Lacation";
 import NextBtn from "../Card/Next-btn";
 import Date from "./Date";
 import Address from "./Address";
-
-import "./receiving.css";
 import Comment from "./Comment";
 import EditBtn from "../Card/EditBtn";
+
+import "./receiving.css";
 
 const Receiving = () => {
   const [showReceiving, setShowReceiving] = React.useState(false);
@@ -16,13 +16,15 @@ const Receiving = () => {
   };
 
   return (
-    <form className="ui form receiving-from">
+    <form className="receiving-from">
       <h2>Способ получения</h2>
       {showReceiving ? (
         <>
           <Location />
-          <Date />
-          <Address />
+          <div className="receiving-for-form">
+            <Date />
+            <Address />
+          </div>
           <Comment />
           <NextBtn />
         </>

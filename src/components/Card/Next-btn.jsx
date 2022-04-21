@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Nextbtn = () => {
     return (
@@ -6,8 +7,6 @@ const Nextbtn = () => {
             <button className="netx">
                 <span>Далее</span>
             </button>
-
-       
         </div>
     )
 }

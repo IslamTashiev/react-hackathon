@@ -5,9 +5,10 @@ import { Button } from "../Buttons/Button";
 const ContactsForm = () => {
     return (
   <div className="contacts">
+     <div className="container">
      <div className="contacts__wrap">
       <h2 className='contact__name'>Связаться с нами</h2>
-       <div className="contact-items">
+       <div className="contact__items">
          <div className='contact__item1'>
           <div className="contact-form">
              <h3>Имя</h3>
@@ -28,8 +29,8 @@ const ContactsForm = () => {
     </div>
   </div>
   </div> 
-  <Button defaultClassName='contact-btn' text='Отправить'  />
  </div>
+</div>
 </div>
 )}
 
