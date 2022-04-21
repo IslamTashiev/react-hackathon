@@ -2,9 +2,8 @@
     width: 100%;
     background: #EDF2F6;
     border-radius: 8px;
-    cursor: pointer;
     transition: 0.3s all ease;
-    margin: 20px 20px 20px 0px;
+    margin: 0px 20px 20px 0px;
   }
 @media (max-width: 530px) {
     .news__item{
@@ -99,12 +98,13 @@
       align-items: center;
     }
 .news__ar{
-    font-family: 'Exo 2';
+font-family: 'Exo 2';
 font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 120%;
 color: #2A5275;
+cursor: pointer;
   }
 .news__ar-svg {
   margin: 0px 5px -1px;
