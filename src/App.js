@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import NewsDetail from "./components/News/NewsDetail";
 import CardPage from "./views/CardPage";
 import ContactPage from "./views/ContactPage";
 import { DetailProductPage } from "./views/DetailProductPage";
@@ -14,6 +15,7 @@ function App() {
         <Route path='/card' element={<CardPage />} />
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/news' element={<NewsPage />} />
+        <Route path='/newsDetail' element={<NewsDetail />} />
         <Route path='/product/:id' element={<DetailProductPage />} />
       </Routes>
     </div>

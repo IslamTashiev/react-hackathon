@@ -49,9 +49,9 @@ const items = [
 const NewsList = () => {
     return (
       <>
-        <div class="news-mt">
-      <div class="news__container">
-      <div class="news__items">
+        <div className="news-mt">
+      <div className="news__container">
+      <div className="news__items">
       <NewsItem items={items}/>
       <NewsItem items={items}/>
       </div>

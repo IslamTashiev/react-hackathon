@@ -8,7 +8,7 @@ const NewsPage = () => {
     <div className='wrapper'>
       <Header />
      <div className="container">
-     <h1>Новости</h1>
+     <h1 className="title__name">Новости</h1>
      <NewsList/>
      </div>
       <Footer />

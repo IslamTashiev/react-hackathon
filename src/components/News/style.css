@@ -126,3 +126,88 @@ cursor: pointer;
       width: 100%;
     }
   }
+.nav-link  {
+    text-decoration: none;
+}
+.detail-title {
+  font-family: 'Exo 2';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 120%;
+color: #070C11;
+margin-bottom: 20px;
+}
+.detail-subtitle1{
+font-family: 'Exo 2';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 130%;
+color: #070C11;
+margin: 20px 0px 40px;
+}
+.detail-subtitle2{
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #070C11;
+  margin: 20px 0px 90px;
+  }
+.newsimg {
+  max-width: 100%;
+  /* width: 530px;
+height: 750px; */
+display: block;
+margin-top: 20px;
+}
+.detail-news {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.detail-info{
+  width: 63%;
+}
+.detail-img{
+  width: 35%;
+}
+.mobileImg {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobileImg {
+    max-width: 100%;
+    display: block;
+    margin-bottom: 60px;
+   }
+   .detail-img{
+    width: 100%;
+  }
+  .detail-info{
+    width: 100%;
+  }
+  .newsimg{
+    display: none;
+   }
+   .detail-subtitle2{
+    margin: 20px 0px 30px;
+   }
+}
+.title__name-detail{
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 130%;
+  color: #070C11;
+  margin-bottom: 20px;
+ }
+ @media (max-width: 320px) {
+  .title__name-detail{
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+ }

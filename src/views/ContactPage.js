@@ -24,7 +24,7 @@ const ContactPage = () => {
       <Header />
          <div className='container'>
            <div className="container_contact">
-           <h1 className='contact__name'>Контакты</h1>
+           <h1 className='title__name'>Контакты</h1>
           <div className="contact__row">
            <div className='contact__items'>
            <Contact />
