@@ -13,11 +13,15 @@ import { LoginModalWindow } from "../ModalWindows/LoginModalWindow";
 import { Link } from "react-router-dom";
 import { MenuBar } from "./MenuBar";
 import { CatologDropdown } from "./CatologDropdown";
+import { CatalogModalWindow } from "../ModalWindows/CatalogModalWindow";
+import { MoreModalWindow } from "../ModalWindows/MoreModalWindow";
 
 export const Header = () => {
   const [activeSearchModal, setActiveSearchModal] = useState(false);
   const [activeLoginModal, setActiveLoginModal] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showModalDropdown, setShowModalDropdown] = useState(false);
+  const [showMoreModal, setShowMoreModal] = useState(false);
 
   const handleChangeSearchModal = () => {
     setActiveSearchModal(!activeSearchModal);
@@ -27,6 +31,12 @@ export const Header = () => {
   };
   const handleChangeCatalog = () => {
     setShowDropdown(!showDropdown);
+  };
+  const handleChangeModalDropdown = () => {
+    setShowModalDropdown(!showModalDropdown);
+  };
+  const handleChangeMoreModal = () => {
+    setShowMoreModal(!showMoreModal);
   };
 
   return (
@@ -54,10 +64,12 @@ export const Header = () => {
                 </div>
               </div>
               <div className='header__menu'>
-                <img src={eyeIcon} />
-                <img src={hearthIcon} />
-                <img src={compareIcon} />
-                <img src={cartIcon} />
+                <div>
+                  <img src={eyeIcon} />
+                  <img src={hearthIcon} />
+                  <img src={compareIcon} />
+                  <img src={cartIcon} />
+                </div>
                 <div onClick={handleChangeLoginModal}>
                   <Button defaultClassName='header__btn' text='Войти' />
                 </div>
@@ -81,6 +93,16 @@ export const Header = () => {
       <MenuBar
         handleChangeCatalog={handleChangeCatalog}
         handleChangeSearchModal={handleChangeSearchModal}
+        handleChangeModalDropdown={handleChangeModalDropdown}
+        handleChangeMoreModal={handleChangeMoreModal}
+      />
+      <CatalogModalWindow
+        isActive={showModalDropdown}
+        handleChangeModalDropdown={handleChangeModalDropdown}
+      />
+      <MoreModalWindow
+        isActive={showMoreModal}
+        handleChangeMoreModal={handleChangeMoreModal}
       />
     </>
   );

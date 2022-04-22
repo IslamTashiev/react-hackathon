@@ -7,7 +7,11 @@ import moreIcon from "../../assets/images/more-icon.svg";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 
-export const MenuBar = ({ handleChangeCatalog, handleChangeSearchModal }) => {
+export const MenuBar = ({
+  handleChangeSearchModal,
+  handleChangeModalDropdown,
+  handleChangeMoreModal,
+}) => {
   const handleGoHome = () => {
     navigate("/");
   };
@@ -24,7 +28,7 @@ export const MenuBar = ({ handleChangeCatalog, handleChangeSearchModal }) => {
     {
       title: "Каталог",
       imageURL: menuiconIcon,
-      activateFunction: handleChangeCatalog,
+      activateFunction: handleChangeModalDropdown,
     },
     {
       title: "Корзина",
@@ -39,9 +43,7 @@ export const MenuBar = ({ handleChangeCatalog, handleChangeSearchModal }) => {
     {
       title: "Ещё",
       imageURL: moreIcon,
-      activateFunction: function () {
-        console.log("asfcs");
-      },
+      activateFunction: handleChangeMoreModal,
     },
   ];
 
