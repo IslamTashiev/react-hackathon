@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CardPage from "./views/CardPage";
-import PersonalAccount from "./views/PersonalAccount";
+import ContactPage from "./views/ContactPage";
+import { DetailProductPage } from "./views/DetailProductPage";
 import { HomePage } from "./views/HomePage";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/card" element={<CardPage />} />
-        <Route path="/personalaccount" element={<PersonalAccount />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/product/:id" element={<DetailProductPage />} />
       </Routes>
     </div>
   );

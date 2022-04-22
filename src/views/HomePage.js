@@ -1,12 +1,16 @@
 import React from "react";
+import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
-import Contact from "../components/Contact/Contact";
+import { JustSlider } from "../components/JustSlider/JustSlider";
+import { ProductList } from "../components/ProductList/ProductList";
 
 export const HomePage = () => {
   return (
     <div className="wrapper">
       <Header />
-      <Contact />
+      {/* <JustSlider /> */}
+      <ProductList />
+      <Footer />
     </div>
   );
 };

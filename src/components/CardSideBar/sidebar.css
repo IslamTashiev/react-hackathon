@@ -4,7 +4,7 @@
     padding: 30px;
     margin: 0 20px;
     width: 420px;
-    height: 350px;
+    height: 365px;
 }
 .other {
     display: flex;
@@ -49,7 +49,11 @@
 }
 .bar-content-div {
     border-bottom: 1px solid #c8cacb;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    height: 50px;
+}
+.bar-sum-total {
+    margin-top: 20px;
 }
 .bar-content h4 {
     font-style: normal;

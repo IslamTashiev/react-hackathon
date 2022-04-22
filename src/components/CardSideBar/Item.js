@@ -4,7 +4,7 @@ const Item = ({ sibeBars }) => {
   const renderedBar = sibeBars.map((sideBar) => {
     return (
       <div key={sideBar.id} className="bar-content">
-        <div>
+        <div className="bar-sum-total">
           <p className="bar-sum">{sideBar.title} товара на сумму</p>
           <p className="sum-price">{sideBar.price} ₽</p>
         </div>
