@@ -6,7 +6,7 @@ const ContactsForm = () => {
     return (
   <div className="contacts">
      <div className="contacts__wrap">
-      <h2 className='contact__name'>Связаться с нами</h2>
+      <h2 className='title__name'>Связаться с нами</h2>
        <div className="contact-items">
          <div className='contact__item1'>
           <div className="contact-form">
