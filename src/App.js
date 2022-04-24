@@ -13,6 +13,7 @@ import { HomePage } from "./views/HomePage";
 import ProfileHistory from "./views/ProfileHistory";
 import ProfileChangePass from "./views/ProfileChangePass";
 import NewsPage from "./views/NewsPage";
+import NewsDetail from "./components/News/NewsDetail";
 
 function App() {
   return (

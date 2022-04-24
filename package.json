@@ -9,10 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "react": "^18.0.0",
-<<<<<<< HEAD
-    "react-devtools": "^4.24.4",
-=======
->>>>>>> 4b7fd0dafdf89137ee9a899f2da3e0f3ae2cf37e
     "react-dom": "^18.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
