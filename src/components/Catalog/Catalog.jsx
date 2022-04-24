@@ -40,20 +40,22 @@ const Catalog = () => {
                 open ? "catalog__filter-button-active" : ""
               }`}
             >
-              <div>
-                <img
-                  className={`catalog__filter-button-img ${
-                    open ? "catalog__filter-button-img-active" : ""
-                  }`}
-                  src={FilterIcon}
-                />
-                <img
-                  className={`catalog__filter-button-img-black ${
-                    open ? "catalog__filter-button-img-black-active" : ""
-                  }`}
-                  src={FilterIconBlack}
-                />
-                Фильтры
+              <div className="div">
+                <div>
+                  <img
+                    className={`catalog__filter-button-img ${
+                      open ? "catalog__filter-button-img-active" : ""
+                    }`}
+                    src={FilterIcon}
+                  />
+                  <img
+                    className={`catalog__filter-button-img-black ${
+                      open ? "catalog__filter-button-img-black-active" : ""
+                    }`}
+                    src={FilterIconBlack}
+                  />
+                  Фильтры
+                </div>
                 <img
                   className={`catalog__filter-close-icon ${
                     open ? "catalog__filter-close-icon-active" : ""

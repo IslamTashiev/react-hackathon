@@ -6,7 +6,7 @@ import { Button } from "../Buttons/Button";
 
 const ItemOne = () => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = React.useState([30, 50]);
+  const [value, setValue] = React.useState([3600, 17000]);
 
   const handleOpenDropdown = () => {
     setOpen(!open);
