@@ -4,7 +4,7 @@ import { createContext, useReducer } from "react";
 const INITIAL_STATE = {
   products: [],
   detailProduct: null,
-  cart: [],
+  cards: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -19,7 +19,16 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         detailProduct: action.payload,
       };
-
+    case "SET_ADD_TO_CARD":
+      return {
+        ...state,
+        cards: action.payload,
+      };
+    case "SET_CARD_ITEMS":
+      return {
+        ...state,
+        cards: action.payload,
+      };
     default:
       break;
   }
@@ -47,14 +56,29 @@ export default function AppContextProvider({ children }) {
       payload: data,
     });
   };
+  const addToCard = async (addedData) => {
+    await axios.post(`${URL}/cards, addedData`);
+  };
+  const fetchCardItems = async () => {
+    const { data } = await axios.get(`${URL}/cards`);
+    console.log(state.cards);
+
+    dispatch({
+      type: "SET_CARD_ITEMS",
+      payload: data,
+    });
+  };
 
   return (
     <appContext.Provider
       value={{
         products: state.products,
         detailProduct: state.detailProduct,
+        сartItem: state.cards,
         fetchProducts,
         fetchProductDetail,
+        addToCard,
+        fetchCardItems,
       }}
     >
       {children}

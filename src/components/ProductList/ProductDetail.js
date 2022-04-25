@@ -12,53 +12,53 @@ export const ProductDetail = ({ product }) => {
   return (
     <>
       {product ? (
-        <div className="detail">
-          <div className="container">
-            <div className="detail__content">
-              <img className="detail__img" src={product.imageURL} />
-              <div className="detail__info">
-                <div className="detail__title">{product.title}</div>
-                <div className="detail__interface">
-                  <div className="interface__header">
-                    <div className="product__item-info">
-                      <div className="info__raiting">
+        <div className='detail'>
+          <div className='container'>
+            <div className='detail__content'>
+              <img className='detail__img' src={product.imageURL} />
+              <div className='detail__info'>
+                <div className='detail__title'>{product.title}</div>
+                <div className='detail__interface'>
+                  <div className='interface__header'>
+                    <div className='product__item-info'>
+                      <div className='info__raiting'>
                         <img src={starIcon} />
                         <img src={starIcon} />
                         <img src={starIcon} />
                         <img src={starIcon} />
                         <img src={starIcon} />
                       </div>
-                      <div className="info__commit">
+                      <div className='info__commit'>
                         <img src={commentIcon} />
                         (17)
                       </div>
                     </div>
-                    <div className="interface__btns">
+                    <div className='interface__btns'>
                       <ButtonImg
-                        defaultClassName="light gray"
+                        defaultClassName='light gray'
                         image={hearthIcon}
                       />
                       <ButtonImg
-                        defaultClassName="light gray"
+                        defaultClassName='light gray'
                         image={compareIcon}
                       />
                     </div>
                   </div>
-                  <div className="interface__footer">
-                    <div className="product__price">{product.price} ₽</div>
-                    <div className="footer__btns">
-                      <Button defaultClassName="footer__btn" text="В корзину" />
+                  <div className='interface__footer'>
+                    <div className='product__price'>{product.price} ₽</div>
+                    <div className='footer__btns'>
+                      <Button defaultClassName='footer__btn' text='В корзину' />
                       <Button
-                        defaultClassName="footer__btn light"
-                        text="Купить в 1 клик"
+                        defaultClassName='footer__btn light'
+                        text='Купить в 1 клик'
                       />
                     </div>
                   </div>
                 </div>
-                <div className="detail__method">
-                  <div className="order__method">
+                <div className='detail__method'>
+                  <div className='order__method'>
                     <img src={shippingIcon} />
-                    <div className="order__desc">
+                    <div className='order__desc'>
                       <h4>Доставка</h4>
                       <p>
                         Доставим по Санкт-Петербургу в течение 2 часов
@@ -67,9 +67,9 @@ export const ProductDetail = ({ product }) => {
                       </p>
                     </div>
                   </div>
-                  <div className="order__method">
+                  <div className='order__method'>
                     <img src={purseIcon} />
-                    <div className="order__desc">
+                    <div className='order__desc'>
                       <h4>Оплата</h4>
                       <p>
                         Принимаем к оплате как наличный, так и безналичный

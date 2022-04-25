@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import EditBtn from './EditBtn'
 import Item from './Item'
 import Nextbtn from './Next-btn'
 
+// import { appContext } from "../../context/appContext";
 
 
 const UrOrder = ({ items }) => {
-    const [showOrder, setShowOrder] = React.useState(false)
+    const [showOrder, setShowOrder] = React.useState(true)
+    // const { сartItem, fetchCardItems } = useContext(appContext)
 
     const closeBlock = () => {
         setShowOrder(!showOrder)
     }
+
+    // useEffect(() => {
+    //     fetchCardItems()
+    //     console.log(сartItem);
+    // }, []
+    // )
 
     return (
         <form>
@@ -26,7 +34,7 @@ const UrOrder = ({ items }) => {
                 ) : (
                     <div onClick={closeBlock}>
                         <div>
-                            
+
                         </div>
                         <EditBtn />
                     </div>

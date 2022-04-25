@@ -1,17 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import UrOrder from './UrOrder'
 import Receiving from '../Receiving/Receiving'
 import Pay from '../Pay/Pay'
 import Recipient from '../Recipient/Recipient'
 
 import "./card.css"
-
-// const next = [
-//     { id: 1 },
-//     { id: 2 },
-//     { id: 3 },
-//     { id: 4 },
-// ]
 
 
 const items = [
