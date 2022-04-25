@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "../Buttons/Button";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import hearthIcon from "../../assets/images/hearth.svg";
@@ -10,9 +10,12 @@ import commentIcon from "../../assets/images/comment.svg";
 
 import "./style.css";
 import { Link } from "react-router-dom";
+import { appContext } from "../../context/appContext";
 
 export const ProductItem = ({ product }) => {
   const [isLiked, setIsLiked] = useState(false);
+
+  const { addToCart } = useContext(appContext);
 
   const categoryItem = [
     {
@@ -83,7 +86,9 @@ export const ProductItem = ({ product }) => {
       </div>
       <div className='product__item-footer'>
         <Button text='Купить в 1 клик' defaultClassName='light item-btn' />
-        <ButtonImg image={cartIcon} />
+        <div onClick={() => addToCart(product)}>
+          <ButtonImg image={cartIcon} />
+        </div>
       </div>
     </div>
   );

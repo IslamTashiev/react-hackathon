@@ -16,7 +16,10 @@ export const NavBar = ({ handleChangeCatalog, isActive }) => {
               <img src={menuiconIcon} />
               <p>Каталог товаров</p>
             </div>
-            <CatologDropdown isActive={isActive} />
+            <CatologDropdown
+              handleChangeCatalog={handleChangeCatalog}
+              isActive={isActive}
+            />
           </div>
           <NavMenu />
         </div>
