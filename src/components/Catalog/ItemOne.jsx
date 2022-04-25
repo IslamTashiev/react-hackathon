@@ -29,8 +29,8 @@ const ItemOne = () => {
             <InputGroup>
               <InputGroup.Addon>от</InputGroup.Addon>
               <InputNumber
-                min={0}
-                max={100}
+                min={3600}
+                max={17000}
                 value={value[0]}
                 onChange={(nextValue) => {
                   const [start, end] = value;
@@ -42,8 +42,8 @@ const ItemOne = () => {
               />
               <InputGroup.Addon>до</InputGroup.Addon>
               <InputNumber
-                min={0}
-                max={100}
+                min={7000}
+                max={17000}
                 value={value[1]}
                 onChange={(nextValue) => {
                   const [start, end] = value;
@@ -59,7 +59,7 @@ const ItemOne = () => {
             <RangeSlider
               progress
               style={{ marginTop: 16 }}
-              value={value}
+              defaultValue={[3600, 17000]}
               onChange={(value) => {
                 setValue(value);
               }}

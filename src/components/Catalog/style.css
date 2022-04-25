@@ -169,6 +169,7 @@
 @media (max-width: 768px) {
   .sort-bar {
     width: 310px;
+    padding: 45px 0 10px 0;
   }
 }
 @media (max-width: 425px) {
@@ -182,11 +183,7 @@
     width: 300px;
   }
 }
-@media (max-width: 768px) {
-  .sort-bar {
-    padding: 45px 0 10px 0;
-  }
-}
+
 .sort-bar__item {
   margin-bottom: 20px;
 }
