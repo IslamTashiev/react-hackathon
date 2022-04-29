@@ -12,6 +12,7 @@ import { DetailProductPage } from "./views/DetailProductPage";
 import { HomePage } from "./views/HomePage";
 import ProfileHistory from "./views/ProfileHistory";
 import ProfileChangePass from "./views/ProfileChangePass";
+import { CategoryPage } from "./views/CategoryPage";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path='/profilehistory' element={<ProfileHistory />} />
         <Route path='/profilechange' element={<ProfileChangePass />} />
         <Route path='/product/:id' element={<DetailProductPage />} />
-        <Route path='/category/:categoy' element={<DetailProductPage />} />
+        <Route path='/category/:category' element={<CategoryPage />} />
       </Routes>
     </div>
   );

@@ -26,7 +26,7 @@
     background: #fff;
     padding: 17px 0;
     transform: translateY(-200%);
-    transition: all .3s ease
+    transition: all .3s ease;
 }
 .search__bar-header p{
     display: none;
@@ -96,13 +96,13 @@
     justify-content: center;
 }
 .login__modal.active .login__modal-content{
-    transform: translateY(0);
+    transform: scale(1);
     opacity: 1;
 }
 .login__modal-content{
     background: #FFFFFF;
     border-radius: 8px;
-    transform: translateY(-50%);
+    transform: scale(0);
     opacity: 0;
     transition: all ease .3s;
     max-width: 310px;
@@ -168,6 +168,11 @@
     margin-top: 10px;
     cursor: pointer;
 }
+.form__text.register{
+    color: #070C11;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
 .form__text.center{
     text-align: center;
 }
@@ -183,7 +188,7 @@
     margin-bottom: 10px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     .login__modal{
         align-items: flex-end;
     }
@@ -192,6 +197,7 @@
         max-width: 100%;
         transform: translateY(200%);
         opacity: 1;
+        margin-bottom: 60px;
     }
 }
 /* ========== Catalog ========== */

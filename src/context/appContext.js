@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   products: [],
   detailProduct: null,
   cart: [],
+  favorite: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -24,9 +25,14 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         cart: action.payload,
       };
+    case "FILTERED_PRODUCTS":
+      return {
+        ...state,
+        favorite: action.payload.filter((item) => item.isLiked === true),
+      };
 
     default:
-      break;
+      return state;
   }
 };
 
@@ -60,7 +66,6 @@ export default function AppContextProvider({ children }) {
       payload: data,
     });
   };
-
   const addToCart = async (addedData) => {
     const editedData = { ...addedData, count: 1 };
 
@@ -79,14 +84,39 @@ export default function AppContextProvider({ children }) {
 
     await axios.post(`${URL}/card`, editedData);
   };
+  const svsd = async () => {
+    const { data } = await axios.get(`${URL}/products`);
 
+    dispatch({
+      type: "FILTERED_PRODUCTS",
+      payload: data,
+    });
+  };
   const fetchCategoryProducts = async (category) => {
     const { data } = axios.get(`${URL}/products?category=${category}`);
+    console.log("hello from fetch category function");
+    dispatch({
+      type: "SET_PRODUCTS",
+      payload: data,
+    });
+  };
+  const setFavoriteProduct = async (id, product) => {
+    const newProduct = {
+      ...product,
+      isLiked: !product.isLiked,
+    };
+    await axios.patch(`${URL}/products/${id}`, newProduct);
+    const { data } = await axios.get(`${URL}/products`);
+    // const { detailProduct } = await axios.get(`${URL}/products/${id}`);
 
     dispatch({
       type: "SET_PRODUCTS",
       payload: data,
     });
+    // dispatch({
+    //   type: "SET_PRODUCT_DETAIL",
+    //   payload: detailProduct,
+    // });
   };
 
   return (
@@ -100,6 +130,7 @@ export default function AppContextProvider({ children }) {
         addToCart,
         fetchCartItems,
         fetchCategoryProducts,
+        setFavoriteProduct,
       }}>
       {children}
     </appContext.Provider>

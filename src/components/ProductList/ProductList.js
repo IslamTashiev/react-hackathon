@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { appContext } from "../../context/appContext";
 import { ProductItem } from "./ProductItem";
+import menuIcon from "../../assets/images/menu-icon.svg";
 
 export const ProductList = () => {
   const { products, fetchProducts } = useContext(appContext);
@@ -30,7 +31,7 @@ export const ProductList = () => {
           </div>
         </div>
         <div className='products__list'>
-          {products.length ? (
+          {products ? (
             products.map((item) => (
               <React.Fragment key={item.id}>
                 <ProductItem product={item} />

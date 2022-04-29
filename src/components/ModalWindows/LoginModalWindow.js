@@ -3,7 +3,11 @@ import closeIcon from "../../assets/images/close-icon.svg";
 import { Button } from "../Buttons/Button";
 import "./style.css";
 
-export const LoginModalWindow = ({ isActive, handleChangeModal }) => {
+export const LoginModalWindow = ({
+  isActive,
+  handleChangeModal,
+  handleChangeRegisterModal,
+}) => {
   return (
     <div className={`login__modal modal__window ${isActive ? "active" : ""}`}>
       <div className='login__modal-content'>
@@ -30,7 +34,14 @@ export const LoginModalWindow = ({ isActive, handleChangeModal }) => {
             <span>Запомнить меня</span>
           </label>
           <Button text='Войти' defaultClassName='form__button' />
-          <div className='form__text center'>Зарегистрироваться</div>
+          <div
+            onClick={() => {
+              handleChangeRegisterModal();
+              handleChangeModal();
+            }}
+            className='form__text center'>
+            Зарегистрироваться
+          </div>
         </form>
       </div>
     </div>

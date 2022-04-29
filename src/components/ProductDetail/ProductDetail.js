@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import compareIcon from "../../assets/images/compare.svg";
+import likeIcon from "../../assets/images/hearth-active.svg";
 import hearthIcon from "../../assets/images/hearth.svg";
 import shippingIcon from "../../assets/images/shipping.svg";
 import purseIcon from "../../assets/images/purse.svg";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import { Button } from "../Buttons/Button";
+import { appContext } from "../../context/appContext";
+import "./style.css";
 
-export const ProductDetail = ({ product }) => {
+export const ProductDetail = () => {
+  const { detailProduct: product, setFavoriteProduct } = useContext(appContext);
+
   return (
     <>
       {product ? (
@@ -34,10 +39,13 @@ export const ProductDetail = ({ product }) => {
                       </div>
                     </div>
                     <div className='interface__btns'>
-                      <ButtonImg
-                        defaultClassName='light gray'
-                        image={hearthIcon}
-                      />
+                      <div
+                        onClick={() => setFavoriteProduct(product.id, product)}>
+                        <ButtonImg
+                          defaultClassName='light gray'
+                          image={product.isLiked ? likeIcon : hearthIcon}
+                        />
+                      </div>
                       <ButtonImg
                         defaultClassName='light gray'
                         image={compareIcon}

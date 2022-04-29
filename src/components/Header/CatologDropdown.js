@@ -75,7 +75,7 @@ export const CatologDropdown = ({ isActive, handleChangeCatalog }) => {
   const { fetchCategoryProducts } = useContext(appContext);
 
   const handleClickCategoryItem = (id) => {
-    fetchCategoryProducts(id);
+    // fetchCategoryProducts(id);
     handleChangeCatalog();
   };
 
@@ -85,7 +85,7 @@ export const CatologDropdown = ({ isActive, handleChangeCatalog }) => {
         onClick={() => handleClickCategoryItem(item.id)}
         key={item.title}
         className='dropdown__item'>
-        <Link to={``}>
+        <Link to={`/category/${item.id}`}>
           <img src={item.img} />
           <div className='catalog__item-title'>{item.title}</div>
         </Link>
