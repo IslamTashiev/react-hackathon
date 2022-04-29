@@ -8,6 +8,7 @@
     line-height: 100%;
     cursor: pointer;
     transition: all .3s ease;
+    border: none;
 }
 .btn:hover{
     background-color: #285882;
@@ -18,4 +19,38 @@
 }
 .header__btn{
     padding: 16px 26px;
+}
+
+.btn.light {
+    background-color: white;
+    /* padding: 13px 75px; */
+    /* border-radius: 4px; */
+    border: 1px solid #4878a6;
+    color: #4878a6;
+    /* cursor: pointer; */
+}
+.btn.light.gray{
+    border: 1px solid #C8CACB;
+    color: #C8CACB;
+
+}
+.btn.light.gray:hover{
+    border: 1px solid #C8CACB;
+    background-color: transparent;
+    color: #C8CACB;
+}
+.btn.light:hover {
+    background-color: #4878a6;
+    color: white;
+}
+.btn.light-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
 }

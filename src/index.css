@@ -18,5 +18,10 @@
   height: 100vh;
 }
 body{
-  padding-top: 133px;
+  padding-top: 139px;
+}
+@media (max-width: 768px) {
+    body{
+      padding-bottom: 70px;
+    }
 }

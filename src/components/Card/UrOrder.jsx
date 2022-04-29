@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { appContext } from '../../context/appContext'
 import EditBtn from './EditBtn'
 import Item from './Item'
 import Nextbtn from './Next-btn'
@@ -35,9 +36,16 @@ const items = [
 const UrOrder = () => {
     const [showOrder, setShowOrder] = React.useState(false)
 
+    const {cartItems, fetchCartItems} = useContext(appContext)
+
     const closeBlock = () => {
         setShowOrder(!showOrder)
     }
+
+    useEffect(() => {
+        fetchCartItems()
+        console.log(cartItems);
+    }, [])
 
     return (
         <form>
@@ -46,7 +54,7 @@ const UrOrder = () => {
                 {showOrder ? (
                     <div className='ur-order'>
                         <div className='ur-content'>
-                            <Item items={items} />
+                            <Item items={cartItems} />
                             <Nextbtn />
                         </div>
                     </div>
