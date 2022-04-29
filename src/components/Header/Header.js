@@ -51,7 +51,6 @@ export const Header = () => {
   return (
     <>
       <div className='header'>
-        {/* {user.uid} */}
         <div className='container'>
           <div className='header__content'>
             <div className='header__logo'>

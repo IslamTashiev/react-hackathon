@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { DetailDescription } from "./DetailDescription";
 import { ProductCharacter } from "./ProductCharacter";
-import { ProductReview } from "./ProductReview";
+import { ProductReview } from "../Reviews/ProductReview";
 import "./style.css";
 
 export const Tabs = () => {
