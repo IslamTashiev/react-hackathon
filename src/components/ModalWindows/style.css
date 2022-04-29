@@ -266,3 +266,18 @@
         padding: 20px;
     }
 }
+
+
+
+
+.with__google{
+    margin: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.with__google img{
+    width: 24px;
+    height: 24px;
+}

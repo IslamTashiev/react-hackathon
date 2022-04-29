@@ -16,6 +16,7 @@ import { MoreModalWindow } from "../ModalWindows/MoreModalWindow";
 import { RegisterModal } from "../ModalWindows/RegisterModal";
 import { useUser } from "../../hooks/useUser";
 import "./style.css";
+import SideBar from "../ProfileSideBar/SideBar";
 
 export const Header = () => {
   const [activeSearchModal, setActiveSearchModal] = useState(false);
@@ -24,6 +25,7 @@ export const Header = () => {
   const [showModalDropdown, setShowModalDropdown] = useState(false);
   const [showMoreModal, setShowMoreModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showUserDatePopup, setShowUserDatePopup] = useState(false);
 
   const user = useUser();
 
@@ -83,7 +85,18 @@ export const Header = () => {
                     <Button defaultClassName='header__btn' text='Войти' />
                   </div>
                 ) : (
-                  <img className='user__avatar' src={user.photoURL} />
+                  <div className='avatar'>
+                    <img
+                      onClick={() => setShowUserDatePopup(!showUserDatePopup)}
+                      className='user__avatar'
+                      src={user.photoURL}
+                    />
+                    <SideBar
+                      defaultClass={`on__header ${
+                        showUserDatePopup ? "active" : ""
+                      }`}
+                    />
+                  </div>
                 )}
               </div>
             </div>

@@ -59,9 +59,9 @@ export const RegisterModal = ({
           <div className='form__text register'>
             Регистрируясь, вы соглашаетесь с пользовательским соглашением
           </div>
-          <div onClick={(e) => handleSignIn(e)}>
-            <Button text='Зарегистрироваться' defaultClassName='form__button' />
-          </div>
+          {/* <div onClick={(e) => handleSignIn(e)}> */}
+          <Button text='Зарегистрироваться' defaultClassName='form__button' />
+          {/* </div> */}
           <div
             onClick={() => {
               handleChangeModal();

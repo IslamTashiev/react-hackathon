@@ -29,7 +29,7 @@
     border-top: 1px solid #EAEAF0;
     
 }
-.profileList__items li:last-child a{
+.profileList__items li:last-child div{
     color: #F15152;
 }
 

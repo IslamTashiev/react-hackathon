@@ -9,6 +9,7 @@
     cursor: pointer;
     transition: all .3s ease;
     border: none;
+    text-align: center;
 }
 .btn:hover{
     background-color: #285882;
