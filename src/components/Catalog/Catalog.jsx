@@ -40,7 +40,7 @@ const Catalog = () => {
                 open ? "catalog__filter-button-active" : ""
               }`}
             >
-              <div className="div">
+              <div className={`div ${open ? "div-active" : ""}`}>
                 <div>
                   <img
                     className={`catalog__filter-button-img ${

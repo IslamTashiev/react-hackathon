@@ -6,7 +6,7 @@ import { Button } from "../Buttons/Button";
 
 const ItemOne = () => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = React.useState([3600, 17000]);
+  const [value, setValue] = React.useState([3600, 8500]);
 
   const handleOpenDropdown = () => {
     setOpen(!open);
@@ -29,8 +29,8 @@ const ItemOne = () => {
             <InputGroup>
               <InputGroup.Addon>от</InputGroup.Addon>
               <InputNumber
-                min={3600}
-                max={17000}
+                min={0}
+                max={3600}
                 value={value[0]}
                 onChange={(nextValue) => {
                   const [start, end] = value;
@@ -42,7 +42,8 @@ const ItemOne = () => {
               />
               <InputGroup.Addon>до</InputGroup.Addon>
               <InputNumber
-                min={7000}
+                classPrefix="input-number"
+                min={0}
                 max={17000}
                 value={value[1]}
                 onChange={(nextValue) => {
@@ -55,18 +56,19 @@ const ItemOne = () => {
               />
             </InputGroup>
           </Col>
-          <Col md={10}>
+          <Col md={10} className="rs-range-slider">
             <RangeSlider
-              progress
+              min={3600}
+              max={17000}
               style={{ marginTop: 16 }}
-              defaultValue={[3600, 17000]}
+              value={value}
               onChange={(value) => {
                 setValue(value);
               }}
             />
           </Col>
         </Row>
-        <Button defaultClassName="contact__btn" text="Отправить" />
+        <Button defaultClassName="contact__btn sort-btn" text="Отправить" />
       </div>
     </div>
   );
