@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import compareIcon from "../../assets/images/compare.svg";

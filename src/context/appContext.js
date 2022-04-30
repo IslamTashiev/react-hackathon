@@ -103,7 +103,9 @@ export default function AppContextProvider({ children }) {
     const productRef = doc(db, "products", id);
     await updateDoc(productRef, { isLiked: !product.isLiked });
     getProductsFromFirebase();
+    getProductDetailFromFirebase();
   };
+
   const getProductsFromFirebase = async () => {
     const productsSnapshot = await getDocs(collection(db, "products"));
     const products = productsSnapshot.docs.map((product) => {
@@ -117,9 +119,10 @@ export default function AppContextProvider({ children }) {
   };
   const getProductDetailFromFirebase = async (id) => {
     const detailSnapShot = await getDoc(doc(db, "products", id));
+    const data = { ...detailSnapShot.data(), id: detailSnapShot.id };
     dispatch({
       type: "SET_PRODUCT_DETAIL",
-      payload: detailSnapShot.data(),
+      payload: data,
     });
   };
   const getReviewsFromFirebase = async () => {

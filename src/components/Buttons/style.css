@@ -55,3 +55,13 @@
     min-width: 48px;
     min-height: 48px;
 }
+.abs{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.abs-2{
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+}

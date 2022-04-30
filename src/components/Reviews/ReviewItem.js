@@ -1,16 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { useUser } from "../../hooks/useUser";
 import deleteIcon from "../../assets/images/delete.svg";
-import { formatDistanceToNow, format, parse } from "date-fns";
+import { format } from "date-fns";
 import { appContext } from "../../context/appContext";
 
 export const ReviewItem = ({ review }) => {
   const user = useUser();
   const time = format(review.createdAt.toDate(), "yyyy-MM-dd");
   const { deleteReview } = useContext(appContext);
-  useEffect(() => {
-    console.log("sdvs");
-  }, [review]);
   return (
     <div>
       {review ? (
