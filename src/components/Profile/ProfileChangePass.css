@@ -1,0 +1,16 @@
+.field{
+    position: relative;
+}
+
+.field svg{
+    position: absolute;
+    left: 90%;
+    top: 7px;
+}
+
+.percona-Change{
+    margin-left: 135px;
+}
+
+
+

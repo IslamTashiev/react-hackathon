@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const NavMenu = () => {
   const navItems = [
     {
       title: "О компании",
-      path: "/",
+      path: "/about",
     },
     {
       title: "Акции",
-      path: "/",
+      path: "/promo",
     },
     {
       title: "Рассрочка 0|0|18",
@@ -24,14 +25,14 @@ export const NavMenu = () => {
     },
     {
       title: "Контакты",
-      path: "/",
+      path: "/contact",
     },
   ];
 
   const renderedItem = navItems.map((item) => {
     return (
       <li key={item.title} className='nav__menu-item'>
-        {item.title}
+        <Link to={item.path}>{item.title}</Link>
       </li>
     );
   });
