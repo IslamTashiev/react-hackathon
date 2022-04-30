@@ -19,15 +19,10 @@ export const LoginModalWindow = ({
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // setUser(result.user);
+        console.log("Вы вошли в аккаунт:", result.user.email);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log("Server error", error.message);
       });
   };
 

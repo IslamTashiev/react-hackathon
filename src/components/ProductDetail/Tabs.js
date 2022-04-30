@@ -3,6 +3,7 @@ import { DetailDescription } from "./DetailDescription";
 import { ProductCharacter } from "./ProductCharacter";
 import { ProductReview } from "../Reviews/ProductReview";
 import "./style.css";
+import { appContext } from "../../context/appContext";
 
 export const Tabs = () => {
   const tabItems = [
@@ -16,9 +17,10 @@ export const Tabs = () => {
     },
     {
       id: 3,
-      label: "Отзывы (1)",
+      label: "Отзывы",
     },
   ];
+  const { reviews } = useContext(appContext);
   const [activeItem, setActiveItem] = useState(1);
   const handleActiveTabItem = (id) => {
     setActiveItem(id);
@@ -34,7 +36,7 @@ export const Tabs = () => {
       key={tab.id}
       className={`tabs__item ${activeItem === tab.id ? "active" : ""}`}
       onClick={() => handleActiveTabItem(tab.id)}>
-      {tab.label}
+      {tab.id === 3 ? `${tab.label} (${reviews.length})` : tab.label}
     </div>
   ));
 

@@ -8,10 +8,10 @@ import { appContext } from "../context/appContext";
 
 export const DetailProductPage = () => {
   const { id } = useParams();
-  const { fetchProductDetail } = useContext(appContext);
+  const { getProductDetailFromFirebase } = useContext(appContext);
 
   useEffect(() => {
-    fetchProductDetail(id);
+    getProductDetailFromFirebase(id);
   }, []);
 
   return (

@@ -12,7 +12,11 @@ import { appContext } from "../../context/appContext";
 import "./style.css";
 
 export const ProductDetail = () => {
-  const { detailProduct: product, setFavoriteProduct } = useContext(appContext);
+  const {
+    detailProduct: product,
+    setFavoriteProduct,
+    reviews,
+  } = useContext(appContext);
 
   return (
     <>
@@ -34,8 +38,7 @@ export const ProductDetail = () => {
                         <img src={starIcon} />
                       </div>
                       <div className='info__commit'>
-                        <img src={commentIcon} />
-                        (17)
+                        <img src={commentIcon} />({reviews.length})
                       </div>
                     </div>
                     <div className='interface__btns'>

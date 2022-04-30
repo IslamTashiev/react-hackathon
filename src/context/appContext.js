@@ -1,5 +1,12 @@
 import axios from "axios";
-import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import { createContext, useReducer } from "react";
 import { db } from "../firebase/config";
 
@@ -50,27 +57,11 @@ const URL = "http://localhost:8080";
 export default function AppContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-  const fetchProducts = async () => {
-    const { data } = await axios.get(`${URL}/products`);
-
-    dispatch({
-      type: "SET_PRODUCTS",
-      payload: data,
-    });
-  };
   const fetchCartItems = async () => {
     const { data } = await axios.get(`${URL}/card`);
 
     dispatch({
       type: "SET_CART_ITEMS",
-      payload: data,
-    });
-  };
-  const fetchProductDetail = async (id) => {
-    const { data } = await axios.get(`${URL}/products/${id}`);
-
-    dispatch({
-      type: "SET_PRODUCT_DETAIL",
       payload: data,
     });
   };
@@ -109,32 +100,35 @@ export default function AppContextProvider({ children }) {
     });
   };
   const setFavoriteProduct = async (id, product) => {
-    const newProduct = {
-      ...product,
-      isLiked: !product.isLiked,
-    };
-    await axios.patch(`${URL}/products/${id}`, newProduct);
-    const { data } = await axios.get(`${URL}/products`);
-    // const { detailProduct } = await axios.get(`${URL}/products/${id}`);
+    const productRef = doc(db, "products", id);
+    await updateDoc(productRef, { isLiked: !product.isLiked });
+    getProductsFromFirebase();
+  };
+  const getProductsFromFirebase = async () => {
+    const productsSnapshot = await getDocs(collection(db, "products"));
+    const products = productsSnapshot.docs.map((product) => {
+      return { ...product.data(), id: product.id };
+    });
 
     dispatch({
       type: "SET_PRODUCTS",
-      payload: data,
+      payload: products,
     });
-    // dispatch({
-    //   type: "SET_PRODUCT_DETAIL",
-    //   payload: detailProduct,
-    // });
   };
-
-  const getDocsFromFirebase = async () => {
+  const getProductDetailFromFirebase = async (id) => {
+    const detailSnapShot = await getDoc(doc(db, "products", id));
+    dispatch({
+      type: "SET_PRODUCT_DETAIL",
+      payload: detailSnapShot.data(),
+    });
+  };
+  const getReviewsFromFirebase = async () => {
     const reviewSnapshot = await getDocs(collection(db, "reviews"));
     const reviewList = reviewSnapshot.docs.map((doc) => {
       const data = { ...doc.data(), id: doc.id };
 
       return data;
     });
-    // setReviews(reviewList);
 
     dispatch({
       type: "SET_REVIEWS",
@@ -154,14 +148,14 @@ export default function AppContextProvider({ children }) {
         detailProduct: state.detailProduct,
         cartItems: state.cart,
         reviews: state.reviews,
-        fetchProducts,
-        fetchProductDetail,
         addToCart,
         fetchCartItems,
         fetchCategoryProducts,
         setFavoriteProduct,
-        getDocsFromFirebase,
+        getReviewsFromFirebase,
         deleteReview,
+        getProductsFromFirebase,
+        getProductDetailFromFirebase,
       }}>
       {children}
     </appContext.Provider>

@@ -11,9 +11,9 @@ import { FeedBack } from "./FeedBack";
 
 export const ProductReview = () => {
   const { detailProduct } = useContext(appContext);
-  const { getDocsFromFirebase, reviews } = useContext(appContext);
+  const { getReviewsFromFirebase, reviews } = useContext(appContext);
   useEffect(() => {
-    getDocsFromFirebase();
+    getReviewsFromFirebase();
   }, []);
 
   const renderedReviews = reviews.map((review) => (
