@@ -39,7 +39,7 @@ const SideBar = ({ defaultClass }) => {
 
   const renderedProfileList = profileList.map((profileLis) => {
     return (
-      <li key={profileLis.title}>
+      <li key={profileLis.id}>
         <a href='#'>{profileLis.title}</a>
       </li>
     );
@@ -47,14 +47,14 @@ const SideBar = ({ defaultClass }) => {
 
   return (
     <>
-      <ul className={`profileList ${defaultClass ? defaultClass : ""}`}>
-        <li className='profileList__items'>
+      <div className={`profileList ${defaultClass ? defaultClass : ""}`}>
+        <ul className='profileList__items'>
           {renderedProfileList}
           <li onClick={handleLOgout}>
             <div>Выйти</div>
           </li>
-        </li>
-      </ul>
+        </ul>
+      </div>
     </>
   );
 };

@@ -11,19 +11,13 @@ import { FeedBack } from "./FeedBack";
 
 export const ProductReview = () => {
   const { detailProduct } = useContext(appContext);
-  const [reviews, setReviews] = useState([]);
-
-  const getDocsFromFirebase = async () => {
-    const reviewSnapshot = await getDocs(collection(db, "reviews"));
-    const reviewList = reviewSnapshot.docs.map((doc) => doc.data());
-    setReviews(reviewList);
-  };
+  const { getDocsFromFirebase, reviews } = useContext(appContext);
   useEffect(() => {
     getDocsFromFirebase();
   }, []);
 
   const renderedReviews = reviews.map((review) => (
-    <React.Fragment key={review.id}>
+    <React.Fragment key={review.title + Math.random()}>
       <ReviewItem review={review} />
     </React.Fragment>
   ));

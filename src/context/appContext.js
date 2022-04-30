@@ -1,11 +1,14 @@
 import axios from "axios";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { createContext, useReducer } from "react";
+import { db } from "../firebase/config";
 
 const INITIAL_STATE = {
   products: [],
   detailProduct: null,
   cart: [],
   favorite: [],
+  reviews: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -29,6 +32,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         favorite: action.payload.filter((item) => item.isLiked === true),
+      };
+    case "SET_REVIEWS":
+      return {
+        ...state,
+        reviews: action.payload,
       };
 
     default:
@@ -119,18 +127,41 @@ export default function AppContextProvider({ children }) {
     // });
   };
 
+  const getDocsFromFirebase = async () => {
+    const reviewSnapshot = await getDocs(collection(db, "reviews"));
+    const reviewList = reviewSnapshot.docs.map((doc) => {
+      const data = { ...doc.data(), id: doc.id };
+
+      return data;
+    });
+    // setReviews(reviewList);
+
+    dispatch({
+      type: "SET_REVIEWS",
+      payload: reviewList,
+    });
+  };
+  const deleteReview = async (review) => {
+    const reviewRef = doc(db, "reviews", review.id);
+
+    await deleteDoc(reviewRef);
+  };
+
   return (
     <appContext.Provider
       value={{
         products: state.products,
         detailProduct: state.detailProduct,
         cartItems: state.cart,
+        reviews: state.reviews,
         fetchProducts,
         fetchProductDetail,
         addToCart,
         fetchCartItems,
         fetchCategoryProducts,
         setFavoriteProduct,
+        getDocsFromFirebase,
+        deleteReview,
       }}>
       {children}
     </appContext.Provider>

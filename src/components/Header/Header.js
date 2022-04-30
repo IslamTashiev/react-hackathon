@@ -92,7 +92,7 @@ export const Header = () => {
                     />
                     <SideBar
                       defaultClass={`on__header ${
-                        showUserDatePopup ? "active" : ""
+                        !showUserDatePopup ? "active" : ""
                       }`}
                     />
                   </div>

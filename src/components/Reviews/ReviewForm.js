@@ -25,9 +25,6 @@ export const ReviewForm = ({ handleShowForm }) => {
     setSubitle("");
     setTitle("");
   };
-  useEffect(() => {
-    console.log("re-render");
-  }, [handleSubmit]);
 
   return (
     <form className='feedback__form '>
