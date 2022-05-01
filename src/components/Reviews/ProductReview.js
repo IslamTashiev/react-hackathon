@@ -10,13 +10,19 @@ import "./style.css";
 import { FeedBack } from "./FeedBack";
 
 export const ProductReview = () => {
-  const { detailProduct } = useContext(appContext);
-  const { getReviewsFromFirebase, reviews } = useContext(appContext);
+  const { getReviewsFromFirebase, reviews, detailProduct } =
+    useContext(appContext);
+
   useEffect(() => {
     getReviewsFromFirebase();
   }, []);
 
-  const renderedReviews = reviews.map((review) => (
+  const productReviews = reviews.filter((review) => {
+    return review.deviceId === detailProduct.id;
+  });
+  // console.log(productReviews);
+
+  const renderedReviews = productReviews.map((review) => (
     <React.Fragment key={review.title + Math.random()}>
       <ReviewItem review={review} />
     </React.Fragment>
@@ -26,7 +32,7 @@ export const ProductReview = () => {
     <div className='detail__review'>
       <div className='container'>
         <div className='description__title'>
-          Отзывы на гироскутер {detailProduct ? detailProduct.title : ""}
+          Отзывы на {detailProduct ? detailProduct.title : ""}
         </div>
         <div className='review__content'>
           <div className='review__items'>{renderedReviews}</div>

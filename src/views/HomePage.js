@@ -17,7 +17,7 @@ export const HomePage = () => {
   return (
     <div className='wrapper'>
       <Header />
-      {/* <JustSlider /> */}
+      <JustSlider />
       <ProductList />
       <Footer />
       {isAdmin ? <AdminAddButton /> : <></>}

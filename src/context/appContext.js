@@ -90,12 +90,15 @@ export default function AppContextProvider({ children }) {
 
     await axios.post(`${URL}/card`, editedData);
   };
-  const svsd = async () => {
-    const { data } = await axios.get(`${URL}/products`);
+  const getFavoriteProducts = async () => {
+    const productsSnapshot = await getDocs(collection(db, "products"));
+    const products = productsSnapshot.docs.map((product) => {
+      return { ...product.data(), id: product.id };
+    });
 
     dispatch({
       type: "FILTERED_PRODUCTS",
-      payload: data,
+      payload: products,
     });
   };
   const fetchCategoryProducts = async (category) => {
@@ -175,6 +178,7 @@ export default function AppContextProvider({ children }) {
         detailProduct: state.detailProduct,
         cartItems: state.cart,
         reviews: state.reviews,
+        favorite: state.favorite,
         addToCart,
         fetchCartItems,
         fetchCategoryProducts,
@@ -185,6 +189,7 @@ export default function AppContextProvider({ children }) {
         getProductDetailFromFirebase,
         setUser,
         getUsersFromFirebase,
+        getFavoriteProducts,
       }}>
       {children}
     </appContext.Provider>

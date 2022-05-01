@@ -31,6 +31,11 @@
     margin-bottom: 10px;
     position: relative;
 }
+@media (max-width: 768px) {
+    .review__item{
+        padding: 20px;
+    }
+}
 .delete__icon{
     position: absolute;
     right: 20px;
@@ -54,10 +59,27 @@
     align-items: center;
     gap: 20px;
 }
+
 .review__header{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .review__author{
+        gap: 10px;
+    }
+    .review__header{
+        margin-bottom: 15px;
+    }
+    .author__avatar{
+        width: 35px;
+        height: 35px;
+    }
+    .feed{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
 }
 .review__date{
     margin: 0 15px 0 7px;

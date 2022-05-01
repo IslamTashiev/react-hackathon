@@ -315,3 +315,32 @@
 .on__header .profileList__items{
     width: 200px;
 }
+
+.header__icon{
+    cursor: pointer;
+    margin-top: 7px;
+}
+@media (max-width: 768px) {
+    .header__icon.cart{
+        display: none;
+    }
+    .user__avatar{
+        width: 34px;
+        height: 35px;
+    }
+}
+
+.header__link-icons{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+@media (max-width: 500px) {
+    .header__link-icons{
+        display: none;
+    }
+    .user__avatar{
+        width: 50px;
+        height: 50px;
+    }
+}

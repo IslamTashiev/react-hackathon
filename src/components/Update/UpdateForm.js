@@ -11,12 +11,16 @@ export const UpdateForm = ({ updateProduct }) => {
   const [description, setDescription] = useState(updateProduct.description);
   const [price, setPrice] = useState(updateProduct.price);
   const [productImage, setProductImage] = useState(updateProduct.imageURL);
-  const [breakeType, setBreakeType] = useState("-");
-  const [type, setType] = useState("-");
-  const [control, setControl] = useState("-");
-  const [mileagePerCharge, setMileagePerCharge] = useState(36);
-  const [power, setPower] = useState(300);
-  const [speed, setSpeed] = useState(25);
+  const [breakeType, setBreakeType] = useState(
+    updateProduct.characteristic.breakeType,
+  );
+  const [type, setType] = useState(updateProduct.characteristic.type);
+  const [control, setControl] = useState(updateProduct.characteristic.control);
+  const [mileagePerCharge, setMileagePerCharge] = useState(
+    updateProduct.characteristic.mileagePerCharge,
+  );
+  const [power, setPower] = useState(updateProduct.characteristic.power);
+  const [speed, setSpeed] = useState(updateProduct.characteristic.speed);
 
   const navigate = useNavigate();
 

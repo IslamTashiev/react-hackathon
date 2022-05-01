@@ -11,6 +11,6 @@ export const useAdmin = () => {
     } else {
       setIsAdmin(false);
     }
-  }, [isAdmin]);
+  }, [isAdmin, user]);
   return isAdmin;
 };

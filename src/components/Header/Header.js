@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/search-icon.svg";
-import compareIcon from "../../assets/images/compare.svg";
-import cartIcon from "../../assets/images/cart.svg";
-import eyeIcon from "../../assets/images/eye.svg";
-import hearthIcon from "../../assets/images/hearth.svg";
+
 import { Button } from "../Buttons/Button";
 import { NavBar } from "./NavBar";
 import { SearchModalBar } from "../ModalWindows/SearchModalBar";
@@ -17,6 +14,7 @@ import { RegisterModal } from "../ModalWindows/RegisterModal";
 import { useUser } from "../../hooks/useUser";
 import "./style.css";
 import SideBar from "../ProfileSideBar/SideBar";
+import { HeaderIcons } from "./HeaderIcons";
 
 export const Header = () => {
   const [activeSearchModal, setActiveSearchModal] = useState(false);
@@ -61,11 +59,11 @@ export const Header = () => {
             <div className='header__info'>
               <div className='header__info-contacts'>
                 <ul className='contacts'>
-                  <li className='contact__item'>+7 (812) 660-50-54</li>
+                  {/* <li className='contact__item'>+7 (812) 660-50-54</li>
                   <li className='contact__item'>+7 (958) 111-95-03</li>
                   <li className='contact__item light'>
                     Пн-вс: с 10:00 до 21:00
-                  </li>
+                  </li> */}
                 </ul>
                 <div onClick={handleChangeSearchModal} className='search__btn'>
                   <img src={searchIcon} />
@@ -73,12 +71,9 @@ export const Header = () => {
                 </div>
               </div>
               <div className='header__menu'>
-                {/* <div> */}
-                <img src={eyeIcon} />
-                <img src={hearthIcon} />
-                <img src={compareIcon} />
-                <img src={cartIcon} />
-                {/* </div> */}
+                <div className='header__link-icons'>
+                  <HeaderIcons />
+                </div>
                 {!user ? (
                   <div onClick={handleChangeLoginModal}>
                     <Button defaultClassName='header__btn' text='Войти' />

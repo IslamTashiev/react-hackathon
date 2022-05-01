@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "../Buttons/Button";
 import { useUser } from "../../hooks/useUser";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { appContext } from "../../context/appContext";
 
 export const ReviewForm = ({ handleShowForm }) => {
   const [title, setTitle] = useState("");
   const [subtitle, setSubitle] = useState("");
 
   const user = useUser();
+  const { detailProduct } = useContext(appContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ export const ReviewForm = ({ handleShowForm }) => {
       userAvatar: user.photoURL,
       userID: user.uid,
       userName: user.displayName,
+      deviceId: detailProduct.id,
     };
 
     await addDoc(collection(db, "reviews"), addedReview);

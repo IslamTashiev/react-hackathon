@@ -36,7 +36,8 @@ export const Tabs = () => {
       key={tab.id}
       className={`tabs__item ${activeItem === tab.id ? "active" : ""}`}
       onClick={() => handleActiveTabItem(tab.id)}>
-      {tab.id === 3 ? `${tab.label} (${reviews.length})` : tab.label}
+      {/* {tab.id === 3 ? `${tab.label} (${reviews.length})` : tab.label} */}
+      {tab.label}
     </div>
   ));
 
