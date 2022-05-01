@@ -3,7 +3,7 @@
     border-radius: 8px;
     padding: 30px;
     margin: 0 20px;
-    width: 420px;
+    max-width: 420px;
     height: 365px;
 }
 .other {

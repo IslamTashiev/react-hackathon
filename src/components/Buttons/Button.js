@@ -3,8 +3,8 @@ import "./style.css";
 
 export const Button = ({ text, defaultClassName }) => {
   return (
-    <button className={`btn ${defaultClassName ? defaultClassName : ""}`}>
+    <div className={`btn ${defaultClassName ? defaultClassName : ""}`}>
       {text}
-    </button>
+    </div>
   );
 };

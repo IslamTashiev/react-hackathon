@@ -15,7 +15,7 @@ import { appContext } from "../../context/appContext";
 export const ProductItem = ({ product }) => {
   const [isLiked, setIsLiked] = useState(false);
 
-  const { addToCart } = useContext(appContext);
+  const { addToCart, setFavoriteProduct } = useContext(appContext);
 
   const categoryItem = [
     {
@@ -35,7 +35,6 @@ export const ProductItem = ({ product }) => {
       id: 3,
     },
   ];
-
   let activeCategoryItem = "Sigvei";
 
   return (
@@ -58,13 +57,13 @@ export const ProductItem = ({ product }) => {
           (17)
         </div>
       </div>
-      <div className="product__item-interface">
-        <div className="interface__price">{product.price} ₽</div>
-        <div className="interface__btns">
-          <div onClick={() => setIsLiked(!isLiked)}>
+      <div className='product__item-interface'>
+        <div className='interface__price'>{product.price} ₽</div>
+        <div className='interface__btns'>
+          <div onClick={() => setFavoriteProduct(product.id, product)}>
             <ButtonImg
-              defaultClassName="light gray"
-              image={isLiked ? likeIcon : hearthIcon}
+              defaultClassName='light gray'
+              image={product.isLiked ? likeIcon : hearthIcon}
             />
           </div>
           <ButtonImg defaultClassName="light gray" image={compareIcon} />

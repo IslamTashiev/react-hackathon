@@ -26,7 +26,7 @@ const Dropdwn = ({ text, allProducts }) => {
   return (
     <div className="favarite-dropdown">
       <div onClick={openDropdown} className="dropdown-title">
-        <h4>{text}</h4>
+        <h4 className="favarite-h4">{text}</h4>
         <svg
           width="14"
           height="12"

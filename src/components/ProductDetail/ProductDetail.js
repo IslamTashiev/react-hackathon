@@ -1,16 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import compareIcon from "../../assets/images/compare.svg";
+import likeIcon from "../../assets/images/hearth-active.svg";
 import hearthIcon from "../../assets/images/hearth.svg";
 import shippingIcon from "../../assets/images/shipping.svg";
 import purseIcon from "../../assets/images/purse.svg";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import { Button } from "../Buttons/Button";
 import { appContext } from "../../context/appContext";
+import "./style.css";
 
-export const ProductDetail = ({ product }) => {
-  const { fetchFavorite, favatire } = useContext(appContext);
+export const ProductDetail = () => {
+  const {
+    detailProduct: product,
+    setFavoriteProduct,
+    reviews,
+  } = useContext(appContext);
 
   return (
     <>
@@ -31,16 +37,18 @@ export const ProductDetail = ({ product }) => {
                         <img src={starIcon} />
                         <img src={starIcon} />
                       </div>
-                      <div className="info__commit">
-                        <img src={commentIcon} />
-                        (17)
+                      <div className='info__commit'>
+                        <img src={commentIcon} />({reviews.length})
                       </div>
                     </div>
-                    <div className="interface__btns">
-                      <ButtonImg
-                        defaultClassName="light gray"
-                        image={hearthIcon}
-                      />
+                    <div className='interface__btns'>
+                      <div
+                        onClick={() => setFavoriteProduct(product.id, product)}>
+                        <ButtonImg
+                          defaultClassName='light gray'
+                          image={product.isLiked ? likeIcon : hearthIcon}
+                        />
+                      </div>
                       <ButtonImg
                         defaultClassName="light gray"
                         image={compareIcon}

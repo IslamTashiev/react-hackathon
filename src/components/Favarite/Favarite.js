@@ -117,6 +117,10 @@ const Favarite = () => {
           <FavariteItem />
           <FavariteItem />
           <FavariteItem />
+          <FavariteItem />
+          <FavariteItem />
+          <FavariteItem />
+          <FavariteItem />  
         </div>
       </div>
     </div>

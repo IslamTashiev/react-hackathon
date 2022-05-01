@@ -99,3 +99,50 @@
     font-weight: 700;
     font-size: 24px;
 }
+
+@media (max-width: 1305px) {
+    .card {
+        width: 97%;
+    }
+    .CardPage {
+        flex-direction: column;
+    }
+    .order {
+        max-width: 100%;
+    }
+    .ur-order {
+        width: 100%;
+    }
+    .ur-content {
+        width: 100%;
+    }
+    .receiving-from {
+        width: 100%;
+    }
+    .card-side-bar {
+        margin: 0;
+        width: 100%;
+        max-width: 1209px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+    .CardPage {
+        flex-direction: column;
+    }
+    .order {
+        max-width: 100%;
+    }
+    .ur-order {
+        width: 100%;
+    }
+    .ur-content {
+        width: 100%;
+    }
+    .receiving-from {
+        width: 100%;
+    }
+}

@@ -18,7 +18,7 @@ const PriceDropdownPrice = ({ filterPrice, text }) => {
   return (
     <div className="price-dropdown">
       <div onClick={openDropdownPrice} className="dropdown-title">
-        <h4>{text}</h4>
+        <h4 className="favarite-h4">{text}</h4>
         <svg
           width="14"
           height="12"
