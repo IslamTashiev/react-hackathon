@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 
 import giroIcon from "../../assets/card/gi.svg";
 
-
 const Item = ({ items }) => {
-  // <<<<<<< islam-O
+
   const rederedOrder = items.map((item) => {
+
     return (
       <React.Fragment key={item.id}>
         <div className='item-content'>

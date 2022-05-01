@@ -10,12 +10,12 @@ import commentIcon from "../../assets/images/comment.svg";
 
 import "./style.css";
 import { Link } from "react-router-dom";
-// import { appContext } from "../../context/appContext";
+import { appContext } from "../../context/appContext";
 
 export const ProductItem = ({ product }) => {
   const [isLiked, setIsLiked] = useState(false);
 
-  // const { addToCard } = useContext(appContext);
+  const { addToCart } = useContext(appContext);
 
   const categoryItem = [
     {
@@ -35,21 +35,7 @@ export const ProductItem = ({ product }) => {
       id: 3,
     },
   ];
-  // const activeCategoryItem = categoryItem.map((item, index) => {
-  //   // return product.category === index;
-  //   console.log(index);
-  //   if (product.category === index) {
-  //     return categoryItem[index];
-  //     console.log(categoryItem[index]);
 
-  //   }
-  // });
-  // const activeCategoryItem = categoryItem.filter((item) => {
-  //   if (item.id !== product.category) {
-  //     // return item.title;
-  //     console.log(item.title);
-  //   }
-  // });
   let activeCategoryItem = "Sigvei";
 
   return (
@@ -86,7 +72,9 @@ export const ProductItem = ({ product }) => {
       </div>
       <div className="product__item-footer">
         <Button text="Купить в 1 клик" defaultClassName="light item-btn" />
-        <ButtonImg image={cartIcon} />
+        <div onClick={() => addToCart(product)}>
+          <ButtonImg image={cartIcon} />
+        </div>
       </div>
     </div>
   );

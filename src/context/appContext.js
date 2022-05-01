@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   products: [],
   detailProduct: null,
   cards: [],
+  favatire: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -19,16 +20,21 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         detailProduct: action.payload,
       };
-    case "SET_ADD_TO_CARD":
+    case "SET_CART_ITEMS":
       return {
         ...state,
-        cards: action.payload,
+        cart: action.payload,
       };
-    case "SET_CARD_ITEMS":
+    case "FILTERED_PRODUCTS":
       return {
-        ...state,
-        cards: action.payload,
+        favatire: action.payload.filter((item) => item.isLiked === true),
       };
+    // case "SET_FAVARITE" :
+    // return {
+    //   ...state,
+    //   favatire:
+    // }
+
     default:
       break;
   }
@@ -45,6 +51,14 @@ export default function AppContextProvider({ children }) {
 
     dispatch({
       type: "SET_PRODUCTS",
+      payload: data,
+    });
+  };
+  const fetchCartItems = async () => {
+    const { data } = await axios.get(`${URL}/card`);
+
+    dispatch({
+      type: "SET_CART_ITEMS",
       payload: data,
     });
   };
@@ -69,16 +83,56 @@ export default function AppContextProvider({ children }) {
     });
   };
 
+  const fetchFavorite = async () => {
+    const { data } = await axios.get(`${URL}/products`);
+
+    dispatch({
+      type: "FILTERED_PRODUCTS",
+      payload: data,
+    });
+  };
+
+  const addToCart = async (addedData) => {
+    const editedData = { ...addedData, count: 1 };
+
+    // if (state.cart) {
+
+    // }
+    // await fetchCartItems();
+
+    // const editedData = state.cart.map((item) => {
+    //   if (item.id === addedData.id) {
+    //     return { ...addedData, count: item.count + 1 };
+    //   }
+    //   console.log(item);
+    //   return { ...addedData, count: 1 };
+    // });
+
+    await axios.post(`${URL}/card`, editedData);
+  };
+
+  const fetchCategoryProducts = async (category) => {
+    const { data } = axios.get(`${URL}/products?category=${category}`);
+
+    dispatch({
+      type: "SET_PRODUCTS",
+      payload: data,
+    });
+  };
+
   return (
     <appContext.Provider
       value={{
         products: state.products,
         detailProduct: state.detailProduct,
-        сartItem: state.cards,
+        cartItems: state.cart,
+        favatire: state.favatire,
         fetchProducts,
         fetchProductDetail,
-        addToCard,
-        fetchCardItems,
+        addToCart,
+        fetchCartItems,
+        fetchCategoryProducts,
+        fetchFavorite,
       }}
     >
       {children}

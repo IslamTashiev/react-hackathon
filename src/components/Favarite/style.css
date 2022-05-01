@@ -1,0 +1,136 @@
+.favarite {
+    width: 50%;
+}
+.favarite-dropdown {
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    width: 240px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.price-dropdown {
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    width: 240px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.dropdown-title {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.4s;
+}
+.dropdown-description {
+    padding: 10px;
+}
+
+.dropdown-description:hover {
+    background-color: #285882;
+    color: white;
+    border-radius: 5px;
+}
+.dropDown {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.favarite-item {
+    display: flex;
+}
+
+.favarite__item {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 0px;
+    border: 1px solid #ddeded;
+    transition: 0.3s all ease;
+    max-width: 325px;
+}
+.favarite__item:hover {
+    border: 1px solid #ffffff;
+    box-shadow: 0px 15px 20px 0px #2a52751a;
+    transform: scale(1.002);
+}
+.favarite__item:first-child {
+    border-radius: 10px 0 0 10px;
+}
+.favarite__item:last-child {
+    border-radius: 0 10px 10px 0;
+}
+.category-item {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: #838688;
+}
+.item__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    color: #070c11;
+    cursor: pointer;
+    text-decoration: none;
+}
+.favatite__item-info {
+    display: flex;
+    gap: 10px;
+}
+.favatite__item-interface {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.favarite__item-sales {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100px;
+    display: flex;
+    justify-content: end;
+}
+@media (max-width: 1335px) {
+    .favarite {
+        width: 100%;
+    }
+    .favarite-item {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .favarite {
+        width: 100%;
+    }
+    .favarite-item {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+@media (max-width: 679px) {
+    .favarite {
+        width: 100%;
+    }
+    .favarite__item {
+        width: 300px;
+    }
+}
+@media (max-width: 624px) {
+    .favarite {
+        width: 100%;
+    }
+    .favarite__item {
+        width: 100%;
+        max-width: none;
+    }
+    .favarite-img {
+        width: 100%;
+    }
+}
