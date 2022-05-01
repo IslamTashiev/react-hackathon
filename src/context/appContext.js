@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  addDoc,
   collection,
   deleteDoc,
   doc,
@@ -16,6 +17,7 @@ const INITIAL_STATE = {
   cart: [],
   favorite: [],
   reviews: [],
+  users: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -44,6 +46,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         reviews: action.payload,
+      };
+    case "SET_USERS":
+      return {
+        ...state,
+        users: action.payload,
       };
 
     default:
@@ -103,9 +110,26 @@ export default function AppContextProvider({ children }) {
     const productRef = doc(db, "products", id);
     await updateDoc(productRef, { isLiked: !product.isLiked });
     getProductsFromFirebase();
-    getProductDetailFromFirebase();
+    // getProductDetailFromFirebase();
   };
-
+  const getUsersFromFirebase = async () => {
+    const usersSnaphsot = await getDocs(collection(db, "users"));
+    const users = usersSnaphsot.docs.map((user) => {
+      return { ...user.data(), id: user.id };
+    });
+    // console.log(users);
+    dispatch({
+      type: "SET_USERS",
+      payload: users,
+    });
+  };
+  const setUser = async (data) => {
+    console.log(state.users);
+    const addedData = state.users.map((user) => {
+      return user.id !== data.id ? data : {};
+    });
+    await addDoc(collection(db, "users"), addedData);
+  };
   const getProductsFromFirebase = async () => {
     const productsSnapshot = await getDocs(collection(db, "products"));
     const products = productsSnapshot.docs.map((product) => {
@@ -159,6 +183,8 @@ export default function AppContextProvider({ children }) {
         deleteReview,
         getProductsFromFirebase,
         getProductDetailFromFirebase,
+        setUser,
+        getUsersFromFirebase,
       }}>
       {children}
     </appContext.Provider>

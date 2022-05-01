@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import backtackIcon from "../../assets/images/backtack.svg";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { Button } from "../Buttons/Button";
-import { FormDropDown } from "./FormDropDown";
+import { FormDropDown } from "../ProductCreate/FormDropDown";
 
-export const CreateForm = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
-  const [productImage, setProductImage] = useState("");
+export const UpdateForm = ({ updateProduct }) => {
+  const [title, setTitle] = useState(updateProduct.title);
+  const [description, setDescription] = useState(updateProduct.description);
+  const [price, setPrice] = useState(updateProduct.price);
+  const [productImage, setProductImage] = useState(updateProduct.imageURL);
   const [breakeType, setBreakeType] = useState("-");
   const [type, setType] = useState("-");
   const [control, setControl] = useState("-");
@@ -52,8 +52,10 @@ export const CreateForm = () => {
       raiting: 4,
       characteristic,
     };
-    await addDoc(collection(db, "products"), addedProduct);
-    navigate("/");
+    // await addDoc(collection(db, "products"), addedProduct);
+    const updateRef = doc(db, "products", updateProduct.id);
+    await updateDoc(updateRef, addedProduct);
+    navigate(`/product/${updateProduct.id}`);
   };
 
   return (
@@ -62,6 +64,7 @@ export const CreateForm = () => {
         <label className='input__label'>Название товара</label>
         <input
           onChange={(e) => setTitle(e.target.value)}
+          value={title}
           type='text'
           required
           className='input'
@@ -71,6 +74,7 @@ export const CreateForm = () => {
         <label className='input__label'>Описание товара</label>
         <textarea
           onChange={(e) => setDescription(e.target.value)}
+          value={description}
           required
           className='input textaarea'
         />
@@ -83,6 +87,7 @@ export const CreateForm = () => {
             <input
               onChange={(e) => setPrice(e.target.value)}
               type='number'
+              value={price}
               required
               className='input'
             />
@@ -163,7 +168,7 @@ export const CreateForm = () => {
         </div>
       </div>
       <div onClick={handleSubmit}>
-        <Button text='Создать' defaultClassName='create__btn' />
+        <Button text='Сохранить изменения' defaultClassName='create__btn' />
       </div>
     </form>
   );

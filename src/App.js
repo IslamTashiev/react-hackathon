@@ -14,6 +14,7 @@ import ProfileHistory from "./views/ProfileHistory";
 import ProfileChangePass from "./views/ProfileChangePass";
 import { CategoryPage } from "./views/CategoryPage";
 import { ProdcutCreatePage } from "./views/ProdcutCreatePage";
+import { UpdatePage } from "./views/UpdatePage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/product/:id' element={<DetailProductPage />} />
         <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/create/product' element={<ProdcutCreatePage />} />
+        <Route path='/update/product/:id' element={<UpdatePage />} />
       </Routes>
     </div>
   );
