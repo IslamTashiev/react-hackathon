@@ -15,7 +15,7 @@ export const AdminButtons = ({ id }) => {
     navigate("/");
   };
   const updateProduct = async () => {
-    navigate(`/update/product/${id}`);
+    navigate(`/admin/update/product/${id}`);
   };
 
   return (

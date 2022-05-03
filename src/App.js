@@ -11,15 +11,11 @@ import ProfileChangePass from "./views/ProfileChangePass";
 import { CategoryPage } from "./views/CategoryPage";
 import { ProdcutCreatePage } from "./views/ProdcutCreatePage";
 import { UpdatePage } from "./views/UpdatePage";
-import { useAdmin } from "./hooks/useAdmin";
-import { NotFoundPage } from "./views/NotFoundPage";
 import { FavoritePage } from "./views/FavoritePage";
 import { AboutUsPage } from "./views/AboutUsPage";
 import { SearchResultsPage } from "./views/SearchResultsPage";
 
 function App() {
-  const isAdmin = useAdmin();
-
   return (
     <div>
       <Routes>
@@ -34,21 +30,12 @@ function App() {
         <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/user/favorite' element={<FavoritePage />} />
         <Route path='/about' element={<AboutUsPage />} />
+        <Route path='/admin/create/product' element={<ProdcutCreatePage />} />
+        <Route path='/admin/update/product/:id' element={<UpdatePage />} />
         <Route
           path='/search/products/:searchedTerm'
           element={<SearchResultsPage />}
         />
-        {isAdmin ? (
-          <>
-            <Route path='/create/product' element={<ProdcutCreatePage />} />
-            <Route path='/update/product/:id' element={<UpdatePage />} />
-          </>
-        ) : (
-          <>
-            <Route path='/create/product' element={<NotFoundPage />} />
-            <Route path='/update/product/:id' element={<NotFoundPage />} />
-          </>
-        )}
       </Routes>
     </div>
   );

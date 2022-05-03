@@ -67,11 +67,11 @@
 }
 @media (max-width: 768px) {
     .abs{
-        bottom: 120px;
-        right: 20px;
+        bottom: 90px;
+        right: 5px;
     }
     .abs-2{
-        bottom: 120px;
-        right: 80px;
+        bottom: 90px;
+        right: 65px;
     }
 }

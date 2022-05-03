@@ -205,6 +205,11 @@ export default function AppContextProvider({ children }) {
       payload: category,
     });
   };
+  const updateProductFirebase = async (updatedProduct, id) => {
+    const updateRef = doc(db, "products", id);
+    const product = { ...updatedProduct, category: state.productCategory };
+    await updateDoc(updateRef, product);
+  };
 
   return (
     <appContext.Provider
@@ -228,6 +233,7 @@ export default function AppContextProvider({ children }) {
         searchProduct,
         createProduct,
         changeCategory,
+        updateProductFirebase,
       }}>
       {children}
     </appContext.Provider>

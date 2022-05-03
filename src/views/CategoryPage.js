@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer/Footer";
 import { CategoryProductList } from "../components/ProductList/CategoryProductList";
 import { useParams } from "react-router-dom";
 import { appContext } from "../context/appContext";
+import { Category } from "../components/Category/Category";
 
 export const CategoryPage = () => {
   const { category } = useParams();
@@ -15,11 +16,7 @@ export const CategoryPage = () => {
   return (
     <div className='wrapper'>
       <Header />
-      <div>
-        <div className='container'>
-          <CategoryProductList products={products} />
-        </div>
-      </div>
+      <Category />
       <Footer />
     </div>
   );
