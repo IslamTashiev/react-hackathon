@@ -8,6 +8,8 @@ export const useUser = () => {
     onAuthStateChanged(auth, (_user) => {
       if (!user) {
         setUser(_user);
+      } else {
+        return user;
       }
     });
   }, [user]);

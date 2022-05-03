@@ -10,7 +10,7 @@ export const ReviewForm = ({ handleShowForm }) => {
   const [subtitle, setSubitle] = useState("");
 
   const user = useUser();
-  const { detailProduct } = useContext(appContext);
+  const { detailProduct, getReviewsFromFirebase } = useContext(appContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +25,7 @@ export const ReviewForm = ({ handleShowForm }) => {
     };
 
     await addDoc(collection(db, "reviews"), addedReview);
+    getReviewsFromFirebase();
     setSubitle("");
     setTitle("");
   };

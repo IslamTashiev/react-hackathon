@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { appContext } from "../../context/appContext";
 import { CategoryProductList } from "../ProductList/CategoryProductList";
-import "./style.css"
+import "./style.css";
 
 export const Search = () => {
   const { searchedTerm } = useParams();
@@ -17,7 +17,8 @@ export const Search = () => {
       <div className='search__page-content'>
         <div className='container'>
           <h1 className='search__page-title'>
-            Результаты поиска по <span>"{searchedTerm}"</span>
+            Результаты поиска по запросу <span>"{searchedTerm}"</span>{" "}
+            {!searchedProducts.length ? "не найдены" : ""}
           </h1>
           <CategoryProductList products={searchedProducts} />
         </div>

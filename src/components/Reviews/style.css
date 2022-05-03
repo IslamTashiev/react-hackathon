@@ -16,6 +16,9 @@
         width: auto;
     } */
 }
+.detail__review{
+    margin-bottom: 40px;
+}
 @media (min-width: 1225px) {
     .review__item{
         /* max-width: 640px !important; */

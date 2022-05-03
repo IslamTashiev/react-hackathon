@@ -9,6 +9,7 @@ import purseIcon from "../../assets/images/purse.svg";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import { Button } from "../Buttons/Button";
 import { appContext } from "../../context/appContext";
+import { Oval } from "react-loader-spinner";
 import "./style.css";
 
 export const ProductDetail = () => {
@@ -94,7 +95,18 @@ export const ProductDetail = () => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div>
+          <div className='container loading'>
+            <Oval
+              ariaLabel='loading-indicator'
+              height={100}
+              width={100}
+              strokeWidth={3}
+              color='#2A5275'
+              secondaryColor='#838688'
+            />
+          </div>
+        </div>
       )}
     </>
   );

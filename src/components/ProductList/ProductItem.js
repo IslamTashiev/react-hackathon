@@ -69,7 +69,7 @@ export const ProductItem = ({ product }) => {
         {categoryItem[Number(product.category) - 1].title}
       </div>
       <Link to={`/product/${product.id}`} className='products__item-title'>
-        {product.title}
+        <p>{product.title}</p>
       </Link>
       <div className='product__item-info'>
         <div className='info__raiting'>

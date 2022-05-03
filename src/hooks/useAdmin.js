@@ -6,7 +6,7 @@ export const useAdmin = () => {
   const user = useUser();
 
   useEffect(() => {
-    if (user && user.email === "ueaten04@gmail.com") {
+    if (user && user.email === "admin@gmail.com") {
       setIsAdmin(true);
     } else {
       setIsAdmin(false);

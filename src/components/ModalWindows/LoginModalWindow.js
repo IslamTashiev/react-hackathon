@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import closeIcon from "../../assets/images/close-icon.svg";
 import { Button } from "../Buttons/Button";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import googleIcon from "../../assets/images/google.svg";
 
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../firebase/config";
 
 import "./style.css";
@@ -16,7 +16,9 @@ export const LoginModalWindow = ({
   handleChangeModal,
   handleChangeRegisterModal,
 }) => {
-  const { setUser } = useContext(appContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignIn = async (e) => {
     provider.setCustomParameters({ prompt: "select_account" });
@@ -24,19 +26,22 @@ export const LoginModalWindow = ({
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("Вы вошли в аккаунт:", result.user.email);
-        const user = result.user;
-        const currentUser = {
-          userName: user.displayName,
-          userAvatar: user.photoURL,
-          ordersCount: 3,
-          createdAt: serverTimestamp(),
-          cartItems: [],
-          id: user.uid,
-        };
-        setUser(currentUser);
+        handleChangeModal();
       })
       .catch((error) => {
         console.log("Server error", error.message);
+      });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("Вы войшли в аккаунт:" + userCredential.user.displayName);
+        handleChangeModal();
+      })
+      .catch((e) => {
+        console.log(e.message);
       });
   };
 
@@ -58,21 +63,31 @@ export const LoginModalWindow = ({
             defaultClassName='light with__google'
           />
         </div>
-        <form className='login__form'>
+        <form onSubmit={handleLogin} className='login__form'>
           <div className='form__input'>
             <label>Эл. почта или телефон</label>
-            <input type='email' />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type='email'
+            />
           </div>
           <div className='form__input'>
             <label>Пароль</label>
-            <input type='password' />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              type='password'
+            />
           </div>
           <div className='form__text'>Забыли пароль?</div>
           <label className='form__checkbox'>
             <input type='checkbox' />
             <span>Запомнить меня</span>
           </label>
-          <Button text='Войти' defaultClassName='form__button' />
+          <div onClick={(e) => handleLogin(e)}>
+            <Button text='Войти' defaultClassName='form__button' />
+          </div>
           <div
             onClick={() => {
               handleChangeRegisterModal();

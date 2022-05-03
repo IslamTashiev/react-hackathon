@@ -52,11 +52,6 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         reviews: action.payload,
       };
-    case "SET_USERS":
-      return {
-        ...state,
-        users: action.payload,
-      };
     case "SET_SEARCHED_PRODUCTS":
       return {
         ...state,
@@ -148,13 +143,6 @@ export default function AppContextProvider({ children }) {
       payload: users,
     });
   };
-  const setUser = async (data) => {
-    console.log(state.users);
-    const addedData = state.users.map((user) => {
-      return user.id !== data.id ? data : {};
-    });
-    await addDoc(collection(db, "users"), addedData);
-  };
   const getProductsFromFirebase = async () => {
     const q = query(collection(db, "products"), orderBy("createdAt"));
     const productsSnapshot = await getDocs(q);
@@ -176,12 +164,10 @@ export default function AppContextProvider({ children }) {
     });
   };
   const getReviewsFromFirebase = async () => {
-    const q = query(collection(db, "reviews"), orderBy("createdAt"));
+    const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
     const reviewSnapshot = await getDocs(q);
     const reviewList = reviewSnapshot.docs.map((doc) => {
-      const data = { ...doc.data(), id: doc.id };
-
-      return data;
+      return { ...doc.data(), id: doc.id };
     });
 
     dispatch({
@@ -193,6 +179,7 @@ export default function AppContextProvider({ children }) {
     const reviewRef = doc(db, "reviews", review.id);
 
     await deleteDoc(reviewRef);
+    getReviewsFromFirebase();
   };
   const searchProduct = (searchedValue) => {
     const searchedProducts = state.products.filter((product) => {
@@ -236,7 +223,6 @@ export default function AppContextProvider({ children }) {
         deleteReview,
         getProductsFromFirebase,
         getProductDetailFromFirebase,
-        setUser,
         getUsersFromFirebase,
         getFavoriteProducts,
         searchProduct,

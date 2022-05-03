@@ -15,6 +15,7 @@ import { useUser } from "../../hooks/useUser";
 import "./style.css";
 import SideBar from "../ProfileSideBar/SideBar";
 import { HeaderIcons } from "./HeaderIcons";
+import { useAdmin } from "../../hooks/useAdmin";
 
 export const Header = () => {
   const [activeSearchModal, setActiveSearchModal] = useState(false);
@@ -26,6 +27,7 @@ export const Header = () => {
   const [showUserDatePopup, setShowUserDatePopup] = useState(false);
 
   const user = useUser();
+  const isAdmin = useAdmin()
 
   const handleChangeSearchModal = () => {
     setActiveSearchModal(!activeSearchModal);
@@ -79,7 +81,7 @@ export const Header = () => {
                     <Button defaultClassName='header__btn' text='Войти' />
                   </div>
                 ) : (
-                  <div className='avatar'>
+                  <div className={`avatar ${isAdmin ? "admin" : ""}`}>
                     <img
                       onClick={() => setShowUserDatePopup(!showUserDatePopup)}
                       className='user__avatar'

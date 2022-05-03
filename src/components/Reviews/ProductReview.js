@@ -22,11 +22,20 @@ export const ProductReview = () => {
   });
   // console.log(productReviews);
 
-  const renderedReviews = productReviews.map((review) => (
-    <React.Fragment key={review.title + Math.random()}>
-      <ReviewItem review={review} />
-    </React.Fragment>
-  ));
+  const renderedReviews = productReviews.length ? (
+    productReviews.map((review) => (
+      <React.Fragment key={review.title + Math.random()}>
+        <ReviewItem review={review} />
+      </React.Fragment>
+    ))
+  ) : (
+    <>
+      <div>
+        <h2>Oops! У этого товара нет отзывов</h2>
+        <p>Вы можете написать свое мнение о товаре</p>
+      </div>
+    </>
+  );
 
   return (
     <div className='detail__review'>
