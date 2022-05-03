@@ -10,13 +10,16 @@ export const CategoryPage = () => {
   const { products, fetchCategoryProducts } = useContext(appContext);
   useEffect(() => {
     fetchCategoryProducts(category);
-    console.log(products);
-  }, []);
+  }, [category]);
 
   return (
-    <div>
+    <div className='wrapper'>
       <Header />
-      <CategoryProductList products={products} />
+      <div>
+        <div className='container'>
+          <CategoryProductList products={products} />
+        </div>
+      </div>
       <Footer />
     </div>
   );

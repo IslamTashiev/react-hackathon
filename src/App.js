@@ -15,6 +15,7 @@ import { useAdmin } from "./hooks/useAdmin";
 import { NotFoundPage } from "./views/NotFoundPage";
 import { FavoritePage } from "./views/FavoritePage";
 import { AboutUsPage } from "./views/AboutUsPage";
+import { SearchResultsPage } from "./views/SearchResultsPage";
 
 function App() {
   const isAdmin = useAdmin();
@@ -33,6 +34,10 @@ function App() {
         <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/user/favorite' element={<FavoritePage />} />
         <Route path='/about' element={<AboutUsPage />} />
+        <Route
+          path='/search/products/:searchedTerm'
+          element={<SearchResultsPage />}
+        />
         {isAdmin ? (
           <>
             <Route path='/create/product' element={<ProdcutCreatePage />} />

@@ -6,7 +6,10 @@ import {
   doc,
   getDoc,
   getDocs,
+  orderBy,
+  query,
   updateDoc,
+  where,
 } from "firebase/firestore";
 import { createContext, useReducer } from "react";
 import { db } from "../firebase/config";
@@ -18,6 +21,8 @@ const INITIAL_STATE = {
   favorite: [],
   reviews: [],
   users: [],
+  searchedProducts: [],
+  productCategory: "1",
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -51,6 +56,16 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         users: action.payload,
+      };
+    case "SET_SEARCHED_PRODUCTS":
+      return {
+        ...state,
+        searchedProducts: action.payload,
+      };
+    case "CHANGE_CATEGORY":
+      return {
+        ...state,
+        productCategory: action.payload,
       };
 
     default:
@@ -102,8 +117,15 @@ export default function AppContextProvider({ children }) {
     });
   };
   const fetchCategoryProducts = async (category) => {
-    const { data } = axios.get(`${URL}/products?category=${category}`);
-    console.log("hello from fetch category function");
+    const q = query(
+      collection(db, "products"),
+      where("category", "==", `${category}`),
+    );
+    const productsSnapshot = await getDocs(q);
+
+    const data = productsSnapshot.docs.map((product) => {
+      return { ...product.data(), id: product.id };
+    });
     dispatch({
       type: "SET_PRODUCTS",
       payload: data,
@@ -134,7 +156,8 @@ export default function AppContextProvider({ children }) {
     await addDoc(collection(db, "users"), addedData);
   };
   const getProductsFromFirebase = async () => {
-    const productsSnapshot = await getDocs(collection(db, "products"));
+    const q = query(collection(db, "products"), orderBy("createdAt"));
+    const productsSnapshot = await getDocs(q);
     const products = productsSnapshot.docs.map((product) => {
       return { ...product.data(), id: product.id };
     });
@@ -153,7 +176,8 @@ export default function AppContextProvider({ children }) {
     });
   };
   const getReviewsFromFirebase = async () => {
-    const reviewSnapshot = await getDocs(collection(db, "reviews"));
+    const q = query(collection(db, "reviews"), orderBy("createdAt"));
+    const reviewSnapshot = await getDocs(q);
     const reviewList = reviewSnapshot.docs.map((doc) => {
       const data = { ...doc.data(), id: doc.id };
 
@@ -170,6 +194,30 @@ export default function AppContextProvider({ children }) {
 
     await deleteDoc(reviewRef);
   };
+  const searchProduct = (searchedValue) => {
+    const searchedProducts = state.products.filter((product) => {
+      if (searchedValue) {
+        return product.title.includes(searchedValue);
+      } else {
+        return;
+      }
+    });
+    dispatch({
+      type: "SET_SEARCHED_PRODUCTS",
+      payload: searchedProducts,
+    });
+  };
+  const createProduct = async (addedProduct) => {
+    const productRef = collection(db, "products");
+    const product = { ...addedProduct, category: state.productCategory };
+    await addDoc(productRef, product);
+  };
+  const changeCategory = (category) => {
+    dispatch({
+      type: "CHANGE_CATEGORY",
+      payload: category,
+    });
+  };
 
   return (
     <appContext.Provider
@@ -179,6 +227,7 @@ export default function AppContextProvider({ children }) {
         cartItems: state.cart,
         reviews: state.reviews,
         favorite: state.favorite,
+        searchedProducts: state.searchedProducts,
         addToCart,
         fetchCartItems,
         fetchCategoryProducts,
@@ -190,6 +239,9 @@ export default function AppContextProvider({ children }) {
         setUser,
         getUsersFromFirebase,
         getFavoriteProducts,
+        searchProduct,
+        createProduct,
+        changeCategory,
       }}>
       {children}
     </appContext.Provider>

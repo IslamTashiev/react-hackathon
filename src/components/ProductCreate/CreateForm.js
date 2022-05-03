@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import backtackIcon from "../../assets/images/backtack.svg";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { Button } from "../Buttons/Button";
 import { FormDropDown } from "./FormDropDown";
+import { appContext } from "../../context/appContext";
 
 export const CreateForm = () => {
   const [title, setTitle] = useState("");
@@ -17,6 +18,8 @@ export const CreateForm = () => {
   const [mileagePerCharge, setMileagePerCharge] = useState(36);
   const [power, setPower] = useState(300);
   const [speed, setSpeed] = useState(25);
+
+  const { createProduct } = useContext(appContext);
 
   const navigate = useNavigate();
 
@@ -46,13 +49,13 @@ export const CreateForm = () => {
       title,
       description,
       price,
-      category: 2,
       imageURL: productImage,
       isLiked: false,
       raiting: 4,
       characteristic,
+      createdAt: serverTimestamp(),
     };
-    await addDoc(collection(db, "products"), addedProduct);
+    createProduct(addedProduct);
     navigate("/");
   };
 
