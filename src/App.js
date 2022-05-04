@@ -10,6 +10,8 @@ import ProfileHistory from "./views/ProfileHistory";
 import ProfileChangePass from "./views/ProfileChangePass";
 import { CategoryPage } from "./views/CategoryPage";
 import { ProdcutCreatePage } from "./views/ProdcutCreatePage";
+import NewsPage from "./views/NewsPage";
+import NewsDetail from "./components/News/NewsDetail";
 import { UpdatePage } from "./views/UpdatePage";
 import { FavoritePage } from "./views/FavoritePage";
 import { AboutUsPage } from "./views/AboutUsPage";
@@ -23,6 +25,8 @@ function App() {
         <Route path='/card' element={<CardPage />} />
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/profilemain' element={<ProfileMain />} />
+        <Route path='/news' element={<NewsPage />} />
+        <Route path='/newsDetail' element={<NewsDetail />} />
         <Route path='/perconaldata' element={<ProfilePerconalData />} />
         <Route path='/profilehistory' element={<ProfileHistory />} />
         <Route path='/profilechange' element={<ProfileChangePass />} />
