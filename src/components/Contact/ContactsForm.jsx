@@ -26,7 +26,7 @@ const ContactsForm = () => {
         <label className="checkbox__label" htmlFor="checkbox_1"> Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</label>
     </div>
     </div>
-  </div>
+  </div> 
   </div> 
   <Button defaultClassName='contact-btn' text='Отправить'  />
  </div>

@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import compareIcon from "../../assets/images/compare.svg";
+import likeIcon from "../../assets/images/hearth-active.svg";
 import hearthIcon from "../../assets/images/hearth.svg";
 import shippingIcon from "../../assets/images/shipping.svg";
 import purseIcon from "../../assets/images/purse.svg";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import { Button } from "../Buttons/Button";
+import { appContext } from "../../context/appContext";
+import { Oval } from "react-loader-spinner";
+import "./style.css";
 
-export const ProductDetail = ({ product }) => {
+export const ProductDetail = () => {
+  const {
+    detailProduct: product,
+    setFavoriteProduct,
+    reviews,
+  } = useContext(appContext);
+
   return (
     <>
       {product ? (
@@ -29,15 +39,17 @@ export const ProductDetail = ({ product }) => {
                         <img src={starIcon} />
                       </div>
                       <div className='info__commit'>
-                        <img src={commentIcon} />
-                        (17)
+                        <img src={commentIcon} />({reviews.length})
                       </div>
                     </div>
                     <div className='interface__btns'>
-                      <ButtonImg
-                        defaultClassName='light gray'
-                        image={hearthIcon}
-                      />
+                      <div
+                        onClick={() => setFavoriteProduct(product.id, product)}>
+                        <ButtonImg
+                          defaultClassName='light gray'
+                          image={product.isLiked ? likeIcon : hearthIcon}
+                        />
+                      </div>
                       <ButtonImg
                         defaultClassName='light gray'
                         image={compareIcon}
@@ -83,7 +95,18 @@ export const ProductDetail = ({ product }) => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div>
+          <div className='container loading'>
+            <Oval
+              ariaLabel='loading-indicator'
+              height={100}
+              width={100}
+              strokeWidth={3}
+              color='#2A5275'
+              secondaryColor='#838688'
+            />
+          </div>
+        </div>
       )}
     </>
   );

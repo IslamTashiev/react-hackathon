@@ -21,7 +21,7 @@ const Accordion = ({ items }) => {
         <div className="accordion__row">
           <div onClick={() => { handleActiveItem(index) }} className={`title ${active}`}>
             <div className="accordion__title">
-              <span>Заказ №{item.id}<span className="accordion__data"> от {item.data}</span></span>
+              <span className="accordion__sub-title" >Заказ №{item.id}<span className="accordion__data"> от {item.data}</span></span>
               <span>{item.amount}</span>
               <span className="accordion__expectation">{item.expectation}</span>
               <i className="dropdown icon"></i>
@@ -35,14 +35,14 @@ const Accordion = ({ items }) => {
     )
   })
 
-  return(
+  return (
     <>
-    <h2>История покупок</h2>
-    <div className="ui styled accordion">{renderedItems}</div>
+      <h2>История покупок</h2>
+      <div className="ui styled accordion">{renderedItems}</div>
     </>
   )
-  
-  
+
+
 }
 
 export default Accordion
