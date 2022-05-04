@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
 }
-@media (max-width: 375px) {
+@media (max-width: 400px) {
   .catalog__content {
     flex-direction: column;
   }
@@ -32,7 +32,7 @@
     margin: 0;
   }
 }
-@media (max-width: 375px) {
+@media (max-width: 400px) {
   .catalog__product-list {
     margin-top: 20px;
   }
@@ -99,11 +99,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1002;
     width: 100%;
     min-height: 100vh;
-    background: rgba(36, 60, 83, 0.7);
     overflow: hidden;
+    background-color: #2a527566;
+    z-index: 100;
+    transition: all ease 0.3s;
   }
 }
 @media (max-width: 425px) {
