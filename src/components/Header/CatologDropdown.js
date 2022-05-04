@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import menuIcon0 from "../../assets/images/catalog-icons/menu-0.svg";
 import menuIcon1 from "../../assets/images/catalog-icons/menu-1.svg";
 import menuIcon2 from "../../assets/images/catalog-icons/menu-2.svg";
@@ -11,7 +11,6 @@ import menuIcon8 from "../../assets/images/catalog-icons/menu-8.svg";
 import menuIcon9 from "../../assets/images/catalog-icons/menu-9.svg";
 import menuIcon10 from "../../assets/images/catalog-icons/menu-10.svg";
 import { Link } from "react-router-dom";
-import { appContext } from "../../context/appContext";
 
 export const CatologDropdown = ({ isActive, handleChangeCatalog }) => {
   const catalogItems = [
@@ -72,20 +71,13 @@ export const CatologDropdown = ({ isActive, handleChangeCatalog }) => {
     },
   ];
 
-  const { fetchCategoryProducts } = useContext(appContext);
-
-  const handleClickCategoryItem = (id) => {
-    fetchCategoryProducts(id);
-    handleChangeCatalog();
-  };
-
   const renderedItem = catalogItems.map((item) => {
     return (
       <div
-        onClick={() => handleClickCategoryItem(item.id)}
+        onClick={handleChangeCatalog}
         key={item.title}
         className='dropdown__item'>
-        <Link to={``}>
+        <Link to={`/category/${item.id}`}>
           <img src={item.img} />
           <div className='catalog__item-title'>{item.title}</div>
         </Link>

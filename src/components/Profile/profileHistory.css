@@ -43,3 +43,30 @@ color: #070C11;
 .accordion__expectation{
     color: #22A44E;
 }
+
+@media (max-width: 768px) {
+    .profile-accordion {
+        padding: 0;
+        width: 40em
+    }
+}
+@media (max-width: 600px) {
+    .profile-accordion {
+        border-radius: 0px;
+    }
+    .ui.styled.accordion .accordion .title, .ui.styled.accordion .title {
+        padding: 0 0 15px 0;
+    }
+    .accordion__sub-title{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-accordion {
+        border: none;
+        width:100%;
+        text-align: center;
+    }
+    .profile-accordion span{
+        padding: 5px;
+    }
+}

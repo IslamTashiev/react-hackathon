@@ -9,6 +9,7 @@
     cursor: pointer;
     transition: all .3s ease;
     border: none;
+    text-align: center;
 }
 .btn:hover{
     background-color: #285882;
@@ -53,4 +54,24 @@
     justify-content: center;
     min-width: 48px;
     min-height: 48px;
+}
+.abs{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.abs-2{
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+}
+@media (max-width: 768px) {
+    .abs{
+        bottom: 90px;
+        right: 5px;
+    }
+    .abs-2{
+        bottom: 90px;
+        right: 65px;
+    }
 }
