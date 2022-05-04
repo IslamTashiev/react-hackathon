@@ -13,9 +13,6 @@ const SortBar = () => {
         <ItemTwo />
         <ItemThree />
         <ItemFour />
-        <ItemTwo />
-        <ItemThree />
-        <ItemFour />
       </div>
     </div>
   );

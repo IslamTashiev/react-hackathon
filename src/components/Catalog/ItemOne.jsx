@@ -42,7 +42,6 @@ const ItemOne = () => {
               />
               <InputGroup.Addon>до</InputGroup.Addon>
               <InputNumber
-                classPrefix="input-number"
                 min={0}
                 max={17000}
                 value={value[1]}
