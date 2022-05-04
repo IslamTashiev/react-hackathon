@@ -1,6 +1,9 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.css";
+
+import sliderImage from "../../assets/images/slider.png";
+
 import "./style.css";
 
 export const JustSlider = () => {
@@ -12,10 +15,7 @@ export const JustSlider = () => {
         showThumbs={false}
         infiniteLoop={true}>
         <div className='heroImg'>
-          <img
-            src='https://klike.net/uploads/posts/2019-12/1575879877_2.jpg'
-            alt='heroSlider'
-          />
+          <img src={sliderImage} alt='heroSlider' />
         </div>
         <div>
           <img

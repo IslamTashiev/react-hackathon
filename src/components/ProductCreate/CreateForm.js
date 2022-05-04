@@ -19,6 +19,8 @@ export const CreateForm = () => {
   const [power, setPower] = useState(300);
   const [speed, setSpeed] = useState(25);
 
+  const [showAddedPhoto, setShowAddedPhoto] = useState(false);
+
   const { createProduct } = useContext(appContext);
 
   const navigate = useNavigate();
@@ -34,6 +36,9 @@ export const CreateForm = () => {
       setProductImage(e.target.result);
     };
     reader.readAsDataURL(file);
+  };
+  const showPhoto = () => {
+    setShowAddedPhoto(!showAddedPhoto);
   };
 
   const handleSubmit = async () => {
@@ -91,8 +96,17 @@ export const CreateForm = () => {
             />
           </div>
           <div className='create__input file'>
+            <img
+              src={productImage}
+              className={`added__iamge ${
+                showAddedPhoto && productImage ? "active" : ""
+              }`}
+            />
             <label className='input__label'>Фотография товара</label>
-            <label className='input file'>
+            <label
+              onMouseOver={showPhoto}
+              onMouseLeave={showPhoto}
+              className='input file'>
               <h4>Закрепить</h4>
               <img src={backtackIcon} />
               <input

@@ -1,24 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './ProfileSideBar.css'
+import "./ProfileSideBar.css";
 
 const ProfileSideBar = ({ profileList }) => {
-
-    const renderedProfileList = profileList.map(profileLis => {
-        return <li key={profileLis.title}><Link to={profileLis.link}>
-            {profileLis.title}</Link>
-        </li>
-    })
-
+  const renderedProfileList = profileList.map((profileLis) => {
     return (
-        <>
-            <ul className="profileList">
-                <li className='profileList__items'>
-                    {renderedProfileList}
-                </li>
-            </ul>
-        </>
-    )
-}
+      <li key={profileLis.title}>
+        <Link to={profileLis.link}>{profileLis.title}</Link>
+      </li>
+    );
+  });
 
-export default ProfileSideBar
+  return (
+    <>
+      <ul className='profileList'>
+        <ul className='profileList__items'>{renderedProfileList}</ul>
+      </ul>
+    </>
+  );
+};
+
+export default ProfileSideBar;

@@ -23,7 +23,12 @@ export const UpdateForm = ({ updateProduct }) => {
   const [power, setPower] = useState(updateProduct.characteristic.power);
   const [speed, setSpeed] = useState(updateProduct.characteristic.speed);
 
+  const [showAddedPhoto, setShowAddedPhoto] = useState(false);
   const { updateProductFirebase } = useContext(appContext);
+
+  const showPhoto = () => {
+    setShowAddedPhoto(!showAddedPhoto);
+  };
 
   const navigate = useNavigate();
 
@@ -100,8 +105,17 @@ export const UpdateForm = ({ updateProduct }) => {
             />
           </div>
           <div className='create__input file'>
+            <img
+              src={productImage}
+              className={`added__iamge ${
+                showAddedPhoto && productImage ? "active" : ""
+              }`}
+            />
             <label className='input__label'>Фотография товара</label>
-            <label className='input file'>
+            <label
+              onMouseOver={showPhoto}
+              onMouseLeave={showPhoto}
+              className='input file'>
               <h4>Закрепить</h4>
               <img src={backtackIcon} />
               <input

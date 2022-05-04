@@ -12,20 +12,12 @@ export const NavMenu = () => {
       path: "/promo",
     },
     {
-      title: "Рассрочка 0|0|18",
-      path: "/",
-    },
-    {
-      title: "Сервис и гарантия",
-      path: "/",
-    },
-    {
-      title: "Опт/дропшиппинг",
-      path: "/",
-    },
-    {
       title: "Контакты",
       path: "/contact",
+    },
+    {
+      title: "Новости",
+      path: "/news",
     },
   ];
 

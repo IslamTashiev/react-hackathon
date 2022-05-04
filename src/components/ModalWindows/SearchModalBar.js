@@ -10,6 +10,7 @@ export const SearchModalBar = ({ isActive, handleChangeModal }) => {
 
   const navigateToSearchedProduct = (id) => {
     navigate(`/product/${id}`);
+    handleChangeModal();
     setTerm("");
   };
 
@@ -19,17 +20,24 @@ export const SearchModalBar = ({ isActive, handleChangeModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTerm("");
+    handleChangeModal();
     navigate(`/search/products/${term}`);
   };
 
   const renderedSearchItems = searchedProducts.map((searchItem) => {
     return (
-      <div
-        key={searchItem.id}
-        onClick={() => navigateToSearchedProduct(searchItem.id)}
-        className='searched__results-item'>
-        {searchItem.title}
-      </div>
+      <React.Fragment key={searchItem.id}>
+        {term ? (
+          <div
+            onClick={() => navigateToSearchedProduct(searchItem.id)}
+            className='searched__results-item'>
+            {searchItem.title}
+          </div>
+        ) : (
+          <></>
+        )}
+      </React.Fragment>
     );
   });
 
@@ -42,6 +50,7 @@ export const SearchModalBar = ({ isActive, handleChangeModal }) => {
               onChange={(e) => setTerm(e.target.value)}
               placeholder='Введите запрос, например «Smart balance»'
               type='text'
+              value={term}
             />
           </form>
           <div className='search__bar-header'>

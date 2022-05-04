@@ -15,11 +15,11 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div className='wrapper'>
-      <Header />
+    <div>
+      {/* <Header /> */}
       <JustSlider />
       <ProductList />
-      <Footer />
+      {/* <Footer /> */}
       {isAdmin ? <AdminAddButton /> : <></>}
     </div>
   );

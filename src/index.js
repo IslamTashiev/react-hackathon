@@ -6,6 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 import AppContextProvider from "./context/appContext";
 import { ScrollToTop } from "./components/Route/ScrollToTop";
 import { SequireAdminRoutes } from "./components/Route/SequireAdminRoutes";
+import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +16,11 @@ root.render(
       <AppContextProvider>
         <SequireAdminRoutes>
           <ScrollToTop>
-            <App />
+            <div className='wrapper'>
+              <Header />
+              <App />
+              <Footer />
+            </div>
           </ScrollToTop>
         </SequireAdminRoutes>
       </AppContextProvider>

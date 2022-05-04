@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useUser } from "../../hooks/useUser";
 import deleteIcon from "../../assets/images/delete.svg";
 import { format } from "date-fns";
@@ -10,17 +10,23 @@ export const ReviewItem = ({ review }) => {
   const isAdmin = useAdmin();
   const time = format(review.createdAt.toDate(), "yyyy-MM-dd");
   const { deleteReview } = useContext(appContext);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  const handleDeleteReview = (review) => {
+    deleteReview(review);
+    setIsDeleted(!isDeleted);
+  };
   return (
     <div>
       {review ? (
         <div
-          className='review__item'
+          className={`review__item ${isDeleted ? "deleted" : ""}`}
           style={{
             background: user && user.uid === review.userID ? "#cfe1f0" : "",
           }}>
           {(user && user.uid === review.userID) || isAdmin ? (
             <img
-              onClick={() => deleteReview(review)}
+              onClick={() => handleDeleteReview(review)}
               className='delete__icon'
               src={deleteIcon}
             />

@@ -29,10 +29,27 @@
     background: #EDF2F6;
     border-radius: 10px;
     padding: 40px;
-    /* width: 640px; */
     max-width: 640px;
     margin-bottom: 10px;
     position: relative;
+    opacity: 1;
+}
+.review__item.deleted{
+    animation-name: deleted;
+    animation-duration: 1s;
+}
+@keyframes deleted {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    10%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+    
 }
 @media (max-width: 768px) {
     .review__item{

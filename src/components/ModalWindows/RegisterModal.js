@@ -27,7 +27,7 @@ export const RegisterModal = ({
     const update = async (user) => {
       await updateProfile(user, {
         displayName: name,
-        photoURL: "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+        photoURL: `https://avatars.dicebear.com/api/bottts/${Math.random()}.svg`,
       });
     };
   };

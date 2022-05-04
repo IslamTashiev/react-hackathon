@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
-import { Footer } from "../components/Footer/Footer";
-import { Header } from "../components/Header/Header";
 import { ProductDetail } from "../components/ProductDetail/ProductDetail";
 import { Tabs } from "../components/ProductDetail/Tabs";
 import { appContext } from "../context/appContext";
@@ -22,11 +20,9 @@ export const DetailProductPage = () => {
   const isAdmin = useAdmin();
 
   return (
-    <div className='wrapper'>
-      <Header />
+    <div>
       <ProductDetail />
       <Tabs />
-      <Footer />
       {isAdmin ? <AdminButtons id={id} /> : <></>}
     </div>
   );

@@ -43,6 +43,7 @@
 }
 .create__input.file{
     max-width: 200px;
+    position: relative;
 }
 .create__input.price{
     max-width: 200px;
@@ -93,6 +94,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease;
+    z-index: 10;
 }
 @media (max-width: 530px) {
     .create__input.file{
@@ -191,4 +193,24 @@
     padding: 3px 10px;
     max-width: 80px;
     text-align: center;
+}
+
+.added__iamge{
+    position: absolute;
+    object-fit: cover;
+    bottom: 60%;
+    border-radius: 10px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s all ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+.added__iamge.active{
+    bottom: 100%;
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    visibility: visible;
 }

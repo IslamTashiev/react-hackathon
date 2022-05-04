@@ -74,12 +74,34 @@ const URL = "http://localhost:8080";
 export default function AppContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-  const fetchCartItems = async () => {
-    const { data } = await axios.get(`${URL}/card`);
+  const getCartItems = async (userId) => {
+    const q = query(
+      collection(db, "prodcuts"),
+      where("inCart", "not-in", [userId]),
+    );
+    const productsSnapshot = await getDocs(q);
 
+    const data = productsSnapshot.docs.map((product) => {
+      return { ...product.data(), id: product.id };
+    });
+    console.log("hello from getCart");
+
+    console.log(data);
     dispatch({
       type: "SET_CART_ITEMS",
       payload: data,
+    });
+  };
+
+  const fetchCartItems = async (userId) => {
+    const cartItems = state.products.filter((product) => {
+      return product.inCart.filter((item) => {
+        return item === userId ? product : {};
+      });
+    });
+    dispatch({
+      type: "SET_CART_ITEMS",
+      payload: cartItems,
     });
   };
   const addToCart = async (addedData) => {
@@ -130,14 +152,12 @@ export default function AppContextProvider({ children }) {
     const productRef = doc(db, "products", id);
     await updateDoc(productRef, { isLiked: !product.isLiked });
     getProductsFromFirebase();
-    // getProductDetailFromFirebase();
   };
   const getUsersFromFirebase = async () => {
     const usersSnaphsot = await getDocs(collection(db, "users"));
     const users = usersSnaphsot.docs.map((user) => {
       return { ...user.data(), id: user.id };
     });
-    // console.log(users);
     dispatch({
       type: "SET_USERS",
       payload: users,
@@ -234,6 +254,7 @@ export default function AppContextProvider({ children }) {
         createProduct,
         changeCategory,
         updateProductFirebase,
+        getCartItems,
       }}>
       {children}
     </appContext.Provider>

@@ -1,17 +1,45 @@
 import React from "react";
-import { Footer } from "../components/Footer/Footer";
-import { Header } from "../components/Header/Header";
 import "../components/Profile/profile-title.css";
 import "../components/Profile/profile-nav.css";
 import { Button } from "../components/Buttons/Button";
 import "../components/Profile/profilePerconalData.css";
 import { Link } from "react-router-dom";
 import SideBar from "../components/ProfileSideBar/SideBar";
+import ProfileSideBar from "../components/ProfileSideBar/ProfileSideBar";
+import { useUser } from "../hooks/useUser";
 
 const ProfilePerconalData = () => {
+  const profileList = [
+    {
+      title: "Общие сведения",
+      link: "/user/profilemain",
+    },
+    {
+      title: "Личные данные",
+      link: "/user/perconaldata",
+    },
+    {
+      title: "История покупок",
+      link: "/user/profilehistory",
+    },
+    {
+      title: "Избранное",
+      link: "",
+    },
+    {
+      title: "Сменить пароль",
+      link: "/user/profilechange",
+    },
+    {
+      title: "Выйти",
+      link: "/",
+    },
+  ];
+
+  const user = useUser();
+  // console.log(user.uid.);
   return (
     <>
-      <Header />
       <div className='container'>
         <div className='profile-nav'>
           <Link to='/'>
@@ -51,7 +79,7 @@ const ProfilePerconalData = () => {
         </div>
         <div className='profil-hero'>
           <div className='profile-SideBar'>
-            <SideBar />
+            <ProfileSideBar profileList={profileList} />
           </div>
           <div className='percona-data'>
             <form className='ui form'>
@@ -63,6 +91,7 @@ const ProfilePerconalData = () => {
                       type='text'
                       name='shipping[first-name]'
                       placeholder='Укажите Имя'
+                      value={user.displayName}
                     />
                   </div>
                   <div className='field'>
@@ -71,6 +100,7 @@ const ProfilePerconalData = () => {
                       type='text'
                       name='shipping[last-name]'
                       placeholder='Не указан'
+                      // value={user.}
                     />
                   </div>
                 </div>
@@ -81,6 +111,7 @@ const ProfilePerconalData = () => {
                       type='email'
                       name='shipping[first-name]'
                       placeholder='Укажите @mail'
+                      value={user.email}
                     />
                   </div>
                   <div className='field'>
@@ -109,7 +140,7 @@ const ProfilePerconalData = () => {
                   </div>
                   <div className='field'>
                     <label>Предпочитаемый способ доставки</label>
-                    <select class='ui fluid dropdown'>
+                    <select className='ui fluid dropdown'>
                       <option value='TN'>Не указан</option>
                       <option value='TX'>Лошадьми</option>
                       <option value='UT'>Авия-доставка</option>
@@ -129,6 +160,7 @@ const ProfilePerconalData = () => {
                       type='text'
                       name='shipping[first-name]'
                       placeholder='Санкт-Петербург'
+                      // value={user.}
                     />
                   </div>
                   <div className='field'>
@@ -142,7 +174,7 @@ const ProfilePerconalData = () => {
                   </div>
                 </div>
                 <div className='two fields'>
-                  <div class='field'>
+                  <div className='field'>
                     <label>Индекс</label>
                     <input
                       type='text'
@@ -159,7 +191,6 @@ const ProfilePerconalData = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

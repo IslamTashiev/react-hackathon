@@ -22,10 +22,10 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/card' element={<CardPage />} />
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/profilemain' element={<ProfileMain />} />
-        <Route path='/perconaldata' element={<ProfilePerconalData />} />
-        <Route path='/profilehistory' element={<ProfileHistory />} />
-        <Route path='/profilechange' element={<ProfileChangePass />} />
+        <Route path='/user/profilemain' element={<ProfileMain />} />
+        <Route path='/user/perconaldata' element={<ProfilePerconalData />} />
+        <Route path='/user/profilehistory' element={<ProfileHistory />} />
+        <Route path='/user/profilechange' element={<ProfileChangePass />} />
         <Route path='/product/:id' element={<DetailProductPage />} />
         <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/user/favorite' element={<FavoritePage />} />

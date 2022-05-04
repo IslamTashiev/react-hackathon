@@ -1,6 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { Header } from "../components/Header/Header";
-import { Footer } from "../components/Footer/Footer";
 import { CategoryProductList } from "../components/ProductList/CategoryProductList";
 import { useParams } from "react-router-dom";
 import { appContext } from "../context/appContext";
@@ -13,11 +11,5 @@ export const CategoryPage = () => {
     fetchCategoryProducts(category);
   }, [category]);
 
-  return (
-    <div className='wrapper'>
-      <Header />
-      <Category />
-      <Footer />
-    </div>
-  );
+  return <Category />;
 };

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { appContext } from '../../context/appContext'
+import { useUser } from '../../hooks/useUser'
 import EditBtn from './EditBtn'
 import Item from './Item'
 import Nextbtn from './Next-btn'
@@ -36,16 +37,18 @@ const items = [
 const UrOrder = () => {
     const [showOrder, setShowOrder] = React.useState(false)
 
-    const {cartItems, fetchCartItems} = useContext(appContext)
+    const {cartItems, getCartItems,getProductsFromFirebase} = useContext(appContext)
+    const user = useUser()
 
     const closeBlock = () => {
         setShowOrder(!showOrder)
     }
 
-    useEffect(() => {
-        fetchCartItems()
-        console.log(cartItems);
-    }, [])
+    // useEffect(() => {
+    //     getCartItems(user ? user.uid : "")
+    //     // getProductsFromFirebase();
+    //     console.log(cartItems);
+    // }, [user])
 
     return (
         <form>
