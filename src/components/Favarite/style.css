@@ -37,6 +37,7 @@
 .favarite-item {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .favarite__item {
@@ -96,15 +97,7 @@
 .favarite-h4 {
     margin: 0;
 }
-@media (max-width: 1330px) {
-    .favarite {
-        width: 100%;
-    }
-    .favarite-item {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-}
+
 @media (max-width: 768px) {
     .favarite {
         width: 100%;
