@@ -76,6 +76,36 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+.searched__results{
+    position: absolute;
+    top: 135%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 3px 4px 10px rgba(0,0,0,0.3);
+}
+.searched__results-item{
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .searched__results{
+        width: 100%;
+        box-shadow: none;
+        top: 110%;
+    }
+}
+.searched__results-item:hover{
+    background-color: #EDF2F6;
 }
 .search__bar-content input{
     width: 100%;
@@ -84,6 +114,9 @@
     box-sizing: border-box;
     border-radius: 4px;
     outline: none;
+}
+.search__bar-content form{
+    width: 100%;
 }
 .close-icon {
     cursor: pointer;
@@ -197,7 +230,7 @@
         max-width: 100%;
         transform: translateY(200%);
         opacity: 1;
-        margin-bottom: 60px;
+        margin-bottom: 85px;
     }
 }
 /* ========== Catalog ========== */
@@ -280,4 +313,16 @@
 .with__google img{
     width: 24px;
     height: 24px;
+}
+
+.more__icons{
+    gap: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+@media (max-width: 500px) {
+    .more__icons{
+        display: flex;
+    }
 }

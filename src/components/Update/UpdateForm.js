@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import backtackIcon from "../../assets/images/backtack.svg";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { Button } from "../Buttons/Button";
 import { FormDropDown } from "../ProductCreate/FormDropDown";
+import { appContext } from "../../context/appContext";
 
 export const UpdateForm = ({ updateProduct }) => {
   const [title, setTitle] = useState(updateProduct.title);
   const [description, setDescription] = useState(updateProduct.description);
   const [price, setPrice] = useState(updateProduct.price);
   const [productImage, setProductImage] = useState(updateProduct.imageURL);
-  const [breakeType, setBreakeType] = useState("-");
-  const [type, setType] = useState("-");
-  const [control, setControl] = useState("-");
-  const [mileagePerCharge, setMileagePerCharge] = useState(36);
-  const [power, setPower] = useState(300);
-  const [speed, setSpeed] = useState(25);
+  const [breakeType, setBreakeType] = useState(
+    updateProduct.characteristic.breakeType,
+  );
+  const [type, setType] = useState(updateProduct.characteristic.type);
+  const [control, setControl] = useState(updateProduct.characteristic.control);
+  const [mileagePerCharge, setMileagePerCharge] = useState(
+    updateProduct.characteristic.mileagePerCharge,
+  );
+  const [power, setPower] = useState(updateProduct.characteristic.power);
+  const [speed, setSpeed] = useState(updateProduct.characteristic.speed);
+
+  const { updateProductFirebase } = useContext(appContext);
 
   const navigate = useNavigate();
 
@@ -46,15 +53,15 @@ export const UpdateForm = ({ updateProduct }) => {
       title,
       description,
       price,
-      category: 2,
       imageURL: productImage,
       isLiked: false,
       raiting: 4,
       characteristic,
     };
     // await addDoc(collection(db, "products"), addedProduct);
-    const updateRef = doc(db, "products", updateProduct.id);
-    await updateDoc(updateRef, addedProduct);
+    // const updateRef = doc(db, "products", updateProduct.id);
+    // await updateDoc(updateRef, addedProduct);
+    updateProductFirebase(addedProduct, updateProduct.id);
     navigate(`/product/${updateProduct.id}`);
   };
 

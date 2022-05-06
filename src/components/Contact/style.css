@@ -1,7 +1,7 @@
 /* .contact {
   margin: 120px 0 50px;
 } */
-.contact__name {
+.title__name {
   font-family: "Exo 2";
   font-style: normal;
   font-weight: 700;
@@ -44,6 +44,7 @@
     font-size: 22px;
   }
 }
+
 .contact__items {
   width: 35%;
   display: flex;

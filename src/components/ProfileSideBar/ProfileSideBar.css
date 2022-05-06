@@ -41,7 +41,7 @@
     padding: 0 0 110px 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 .profileList{
     display: none;
 }
@@ -50,4 +50,4 @@
 .profileList{
     display: none;
 }
-}
+} */

@@ -5,11 +5,22 @@
 .detail__info{
     margin-left: 20px;
 }
-
+@media (max-width: 958px) {
+    .detail__info{
+        margin-left: 0px;
+    }
+}
 .detail__img{
-    min-width: 530px;
+    max-width: 530px;
     height: 460px;
     object-fit: cover;
+}
+.loading{
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .detail__content{
@@ -89,7 +100,7 @@
 }
 @media (max-width: 1080px) {
     .detail__img{
-        min-width: 430px;
+        max-width: 100%;
     }
     .footer__btn{
         padding: 13px 10px;
@@ -137,6 +148,9 @@
     .interface__footer{
         flex-direction: column;
     }
+    .detail__img{
+        height: 260px;
+    }
     .footer__btns{
         flex-direction: column;
         margin-top: 20px;
@@ -144,16 +158,36 @@
     .footer__btn{
         width: 100%;
     }
+    .detail__interface{
+        padding: 0;
+        border: none;
+    }
+    .detail__title{
+        font-size: 24px;
+    }
+    .detail__method{
+        flex-direction: column;
+    }
+    .order__method{
+        width: 100%;
+    }
 }
 /* ========== Tabs ========== */
-
+/* .tabs{
+    position: relative;
+} */
 .tabs__content{
     margin: 40px 0;
     width: 100%;
+    /* max-width: 1300px; */
     background: #EDF2F6;
     border-radius: 8px;
     padding: 0 20px;
     display: flex;
+    overflow: auto;
+}
+.tabs__content::-webkit-scrollbar{
+    height: 0;
 }
 .tabs__item{
     padding: 25px 20px;
@@ -164,11 +198,19 @@
     line-height: 130%;
     color: #070C11;
 }
+@media (max-width: 455px) {
+    .tabs__item{
+        padding: 25px 10px;
+    }
+}
 .tabs__item.active{
     color: #2A5275;
     border-bottom: 2px solid #2A5275;
 }
 /* ========== Description ========== */
+.detail__description{
+    margin-bottom: 40px;
+}
 .description__title{
     font-style: normal;
     font-weight: 700;
@@ -184,6 +226,12 @@
     line-height: 120%;
     color: #070C11;
     max-width: 975px;
+}
+@media (max-width: 768px) {
+    .description__title{
+        font-size: 24px;
+        line-height: 110%;
+    }
 }
 /* ========== Table ========== */
 .character__content{
@@ -201,6 +249,15 @@
 }
 .table__item-c{
     width: 425px;
+}
+@media (max-width: 500px) {
+    .table__item{
+        flex-direction: column;
+        width: 100%;
+    }
+    .table__item-c{
+        width: 100%;
+    }
 }
 .table__title{
     font-style: normal;

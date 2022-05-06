@@ -1,11 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useUser } from "../../hooks/useUser";
 import deleteIcon from "../../assets/images/delete.svg";
 import { format } from "date-fns";
 import { appContext } from "../../context/appContext";
+import { useAdmin } from "../../hooks/useAdmin";
 
 export const ReviewItem = ({ review }) => {
   const user = useUser();
+  const isAdmin = useAdmin();
   const time = format(review.createdAt.toDate(), "yyyy-MM-dd");
   const { deleteReview } = useContext(appContext);
   return (
@@ -16,7 +18,7 @@ export const ReviewItem = ({ review }) => {
           style={{
             background: user && user.uid === review.userID ? "#cfe1f0" : "",
           }}>
-          {user && user.uid === review.userID ? (
+          {(user && user.uid === review.userID) || isAdmin ? (
             <img
               onClick={() => deleteReview(review)}
               className='delete__icon'

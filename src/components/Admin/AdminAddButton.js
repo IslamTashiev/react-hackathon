@@ -6,7 +6,7 @@ import { ButtonImg } from "../Buttons/ButtonImg";
 export const AdminAddButton = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/create/product");
+    navigate("/admin/create/product");
   };
 
   return (

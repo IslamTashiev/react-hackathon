@@ -6,7 +6,7 @@ const ContactsForm = () => {
     return (
   <div className="contacts">
      <div className="contacts__wrap">
-      <h2 className='contact__name'>Связаться с нами</h2>
+      <h2 className='title__name'>Связаться с нами</h2>
        <div className="contact-items">
          <div className='contact__item1'>
           <div className="contact-form">
@@ -26,7 +26,7 @@ const ContactsForm = () => {
         <label className="checkbox__label" htmlFor="checkbox_1"> Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</label>
     </div>
     </div>
-  </div>
+  </div> 
   </div> 
   <Button defaultClassName='contact-btn' text='Отправить'  />
  </div>

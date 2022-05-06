@@ -9,8 +9,7 @@ export const DetailDescription = () => {
       <div className='container'>
         <div className='description__content'>
           <div className='description__title'>
-            Описание гироскутера{" "}
-            {detailProduct ? detailProduct.title : "Загрузка..."}
+            Описание {detailProduct ? detailProduct.title : "Загрузка..."}
           </div>
           <p className='description__item'>
             {detailProduct ? detailProduct.description : "Загрузка..."}

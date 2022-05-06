@@ -1,16 +1,14 @@
 import React from "react";
-import Faverite from "../components/Favarite/Favarite";
-import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
+import { Favorite } from "../components/Favorite/Favorite";
 
-const FavoritePage = () => {
+export const FavoritePage = () => {
   return (
-    <div>
+    <div className="wrapper">
       <Header />
-      <Faverite />
+      <Favorite />
       <Footer />
     </div>
   );
 };
-
-export default FavoritePage;
