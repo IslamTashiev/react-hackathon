@@ -19,19 +19,19 @@ const profileList = [
     },
     {
         title: 'История покупок',
-        link:'/profilehistory',
+        link: '/profilehistory',
     },
     {
         title: 'Избранное',
-        link:'',
+        link: '',
     },
     {
         title: 'Сменить пароль',
-        link:'/profilechange',
+        link: '/profilechange',
     },
     {
         title: 'Выйти',
-        link:'/',
+        link: '/',
     },
 ]
 
@@ -71,7 +71,7 @@ const ProfileChangePass = () => {
                                     <div class="field">
                                         <label>Введите старый пароль</label>
                                         <div class="ui left icon input">
-                                            <input type="password" placeholder="Введите старый пароль" />
+                                            <input type="password" placeholder="Старый пароль" />
                                             <i class="lock icon"></i>
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#070C11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -83,7 +83,7 @@ const ProfileChangePass = () => {
                                     <div class="field">
                                         <label>Введите новый пароль</label>
                                         <div class="ui left icon input">
-                                            <input type="password" placeholder="Введите новый пароль" />
+                                            <input type="password" placeholder="Новый пароль" />
                                             <i class="lock icon"></i>
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#070C11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -95,7 +95,7 @@ const ProfileChangePass = () => {
                                     <div class="field">
                                         <label>Повторите новый пароль</label>
                                         <div class="ui left icon input">
-                                            <input type="password" placeholder="Повторите новый пароль" />
+                                            <input type="password" placeholder="Повторите пароль" />
                                             <i class="lock icon"></i>
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#070C11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
