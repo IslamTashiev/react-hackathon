@@ -23,6 +23,8 @@ const INITIAL_STATE = {
   users: [],
   searchedProducts: [],
   productCategory: "1",
+  news: [],
+  newsDetail: null,
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -62,6 +64,16 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         productCategory: action.payload,
       };
+    case "SET_NEWS":
+      return {
+        ...state,
+        news: action.payload,
+      };
+    case "SET_DETAIL_NEWS":
+      return {
+        ...state,
+        newsDetail: action.payload,
+      };
 
     default:
       return state;
@@ -73,6 +85,31 @@ const URL = "http://localhost:8080";
 
 export default function AppContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+
+  const getNews = async () => {
+    const q = query(collection(db, "news"), orderBy("data"));
+    const newsSnapshot = await getDocs(q);
+
+    const data = newsSnapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+
+    dispatch({
+      type: "SET_NEWS",
+      payload: data,
+    });
+  };
+  const getDetailNews = async (id) => {
+    const detailRef = doc(db, "news", id);
+    const detailSnapShot = await getDoc(detailRef);
+
+    const data = { ...detailSnapShot.data(), id: detailSnapShot.id };
+
+    dispatch({
+      type: "SET_DETAIL_NEWS",
+      payload: data,
+    });
+  };
 
   const getCartItems = async (userId) => {
     const q = query(
@@ -106,19 +143,6 @@ export default function AppContextProvider({ children }) {
   };
   const addToCart = async (addedData) => {
     const editedData = { ...addedData, count: 1 };
-
-    // if (state.cart) {
-
-    // }
-    // await fetchCartItems();
-
-    // const editedData = state.cart.map((item) => {
-    //   if (item.id === addedData.id) {
-    //     return { ...addedData, count: item.count + 1 };
-    //   }
-    //   console.log(item);
-    //   return { ...addedData, count: 1 };
-    // });
 
     await axios.post(`${URL}/card`, editedData);
   };
@@ -240,6 +264,8 @@ export default function AppContextProvider({ children }) {
         reviews: state.reviews,
         favorite: state.favorite,
         searchedProducts: state.searchedProducts,
+        news: state.news,
+        newsDetail: state.newsDetail,
         addToCart,
         fetchCartItems,
         fetchCategoryProducts,
@@ -255,6 +281,8 @@ export default function AppContextProvider({ children }) {
         changeCategory,
         updateProductFirebase,
         getCartItems,
+        getNews,
+        getDetailNews,
       }}>
       {children}
     </appContext.Provider>

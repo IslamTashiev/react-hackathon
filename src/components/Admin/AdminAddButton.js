@@ -10,8 +10,13 @@ export const AdminAddButton = () => {
   };
 
   return (
-    <div onClick={handleClick}>
-      <ButtonImg image={addIcon} defaultClassName='abs' />
+    <div className='admin__buttons add'>
+      <div onClick={handleClick}>
+        <ButtonImg image={addIcon} defaultClassName='abs' />
+      </div>
+      <div onClick={handleClick}>
+        <ButtonImg image={addIcon} defaultClassName='abs' />
+      </div>
     </div>
   );
 };

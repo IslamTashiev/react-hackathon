@@ -1,64 +1,63 @@
-.btn{
-    background: #2A5275;
-    border-radius: 4px;
-    color: #fff;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    cursor: pointer;
-    transition: all .3s ease;
-    border: none;
-    text-align: center;
+.btn {
+  background: #2a5275;
+  border-radius: 4px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-align: center;
 }
-.btn:hover{
-    background-color: #285882;
+.btn:hover {
+  background-color: #285882;
 }
-.btn:active{
-    transform: translateY(1px);
-    transition: all .1s ease;
+.btn:active {
+  transform: translateY(1px);
+  transition: all 0.1s ease;
 }
-.header__btn{
-    padding: 16px 26px;
+.header__btn {
+  padding: 16px 26px;
 }
 
 .btn.light {
-    background-color: white;
-    /* padding: 13px 75px; */
-    /* border-radius: 4px; */
-    border: 1px solid #4878a6;
-    color: #4878a6;
-    /* cursor: pointer; */
+  background-color: white;
+  /* padding: 13px 75px; */
+  /* border-radius: 4px; */
+  border: 1px solid #4878a6;
+  color: #4878a6;
+  /* cursor: pointer; */
 }
-.btn.light.gray{
-    border: 1px solid #C8CACB;
-    color: #C8CACB;
-
+.btn.light.gray {
+  border: 1px solid #c8cacb;
+  color: #c8cacb;
 }
-.btn.light.gray:hover{
-    border: 1px solid #C8CACB;
-    background-color: transparent;
-    color: #C8CACB;
+.btn.light.gray:hover {
+  border: 1px solid #c8cacb;
+  background-color: transparent;
+  color: #c8cacb;
 }
 .btn.light:hover {
-    background-color: #4878a6;
-    color: white;
+  background-color: #4878a6;
+  color: white;
 }
 .btn.light-btn {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
-.btn.image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 48px;
-    min-height: 48px;
+.btn.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
 }
-.abs{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+/* .abs {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 .abs-2{
     position: fixed;
@@ -74,4 +73,17 @@
         bottom: 90px;
         right: 65px;
     }
+} */
+.admin__buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+/* .admin__buttons.add {
+  flex-direction: column;
+  height: 120px;
+  right: 80px;
+} */
