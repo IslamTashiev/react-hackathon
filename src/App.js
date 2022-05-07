@@ -1,21 +1,27 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import CardPage from "./views/CardPage";
-import ContactPage from "./views/ContactPage";
-import ProfileMain from "./views/ProfileMain";
-import ProfilePerconalData from "./views/ProfilePerconalData";
-import { DetailProductPage } from "./views/DetailProductPage";
-import { HomePage } from "./views/HomePage";
-import ProfileHistory from "./views/ProfileHistory";
-import ProfileChangePass from "./views/ProfileChangePass";
-import { CategoryPage } from "./views/CategoryPage";
-import { ProdcutCreatePage } from "./views/ProdcutCreatePage";
-import NewsPage from "./views/NewsPage";
-import NewsDetail from "./components/News/NewsDetail";
 import { UpdatePage } from "./views/UpdatePage";
 import { FavoritePage } from "./views/FavoritePage";
 import { AboutUsPage } from "./views/AboutUsPage";
 import { SearchResultsPage } from "./views/SearchResultsPage";
+import { SearchModalBar } from "./components/ModalWindows/SearchModalBar";
+import { LoginModalWindow } from "./components/ModalWindows/LoginModalWindow";
+import { MenuBar } from "./components/Header/MenuBar";
+import { DetailProductPage } from "./views/DetailProductPage";
+import { HomePage } from "./views/HomePage";
+import { CatalogModalWindow } from "./components/ModalWindows/CatalogModalWindow";
+import { MoreModalWindow } from "./components/ModalWindows/MoreModalWindow";
+import { CategoryPage } from "./views/CategoryPage";
+import { ProdcutCreatePage } from "./views/ProdcutCreatePage";
+import { RegisterModal } from "./components/ModalWindows/RegisterModal";
+import CardPage from "./views/CardPage";
+import ContactPage from "./views/ContactPage";
+import ProfileMain from "./views/ProfileMain";
+import ProfilePerconalData from "./views/ProfilePerconalData";
+import ProfileHistory from "./views/ProfileHistory";
+import ProfileChangePass from "./views/ProfileChangePass";
+import NewsPage from "./views/NewsPage";
+import NewsDetail from "./components/News/NewsDetail";
 
 function App() {
   return (
@@ -41,6 +47,12 @@ function App() {
           element={<SearchResultsPage />}
         />
       </Routes>
+      <SearchModalBar />
+      <LoginModalWindow />
+      <MenuBar />
+      <CatalogModalWindow />
+      <MoreModalWindow />
+      <RegisterModal />
     </div>
   );
 }

@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import closeIcon from "../../assets/images/close-icon.svg";
 import { Button } from "../Buttons/Button";
 import "./style.css";
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import { modalContext } from "../../context/modalContext";
 
-export const RegisterModal = ({
-  isActive,
-  handleChangeRegisterModal,
-  handleChangeModal,
-}) => {
+export const RegisterModal = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+
+  const { changeSigninState, changeSignupState, signup } =
+    useContext(modalContext);
 
   const createUser = async () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         update(userCredential.user);
-        handleChangeRegisterModal();
+        changeSignupState();
       })
       .catch((e) => {
         console.log(e.message);
@@ -33,12 +33,12 @@ export const RegisterModal = ({
   };
 
   return (
-    <div className={`login__modal modal__window ${isActive ? "active" : ""}`}>
+    <div className={`login__modal modal__window ${signup ? "active" : ""}`}>
       <div className='login__modal-content'>
         <div className='content__header'>
           <div className='header__text'>Регистрация</div>
           <img
-            onClick={handleChangeRegisterModal}
+            onClick={changeSignupState}
             className='close-icon'
             src={closeIcon}
           />
@@ -76,8 +76,8 @@ export const RegisterModal = ({
           </div>
           <div
             onClick={() => {
-              handleChangeModal();
-              handleChangeRegisterModal();
+              changeSigninState();
+              changeSignupState();
             }}
             className='form__text center'>
             Я уже зарегистрирован

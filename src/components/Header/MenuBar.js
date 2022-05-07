@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import homeIcon from "../../assets/images/home.svg";
 import menuiconIcon from "../../assets/images/menu-icon.svg";
 import cartwhiteIcon from "../../assets/images/cart-white.svg";
@@ -6,18 +6,17 @@ import searchIcon from "../../assets/images/search-icon-white.svg";
 import moreIcon from "../../assets/images/more-icon.svg";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { modalContext } from "../../context/modalContext";
 
-export const MenuBar = ({
-  handleChangeSearchModal,
-  handleChangeModalDropdown,
-  handleChangeMoreModal,
-}) => {
+export const MenuBar = () => {
   const handleGoHome = () => {
     navigate("/");
   };
   const handleGoToCart = () => {
     navigate("/card");
   };
+  const { changeCatalogState, changeSearchState, changeMoreState } =
+    useContext(modalContext);
 
   const menuItems = [
     {
@@ -28,7 +27,7 @@ export const MenuBar = ({
     {
       title: "Каталог",
       imageURL: menuiconIcon,
-      activateFunction: handleChangeModalDropdown,
+      activateFunction: changeCatalogState,
     },
     {
       title: "Корзина",
@@ -38,12 +37,12 @@ export const MenuBar = ({
     {
       title: "Поиск",
       imageURL: searchIcon,
-      activateFunction: handleChangeSearchModal,
+      activateFunction: changeSearchState,
     },
     {
       title: "Ещё",
       imageURL: moreIcon,
-      activateFunction: handleChangeMoreModal,
+      activateFunction: changeMoreState,
     },
   ];
 

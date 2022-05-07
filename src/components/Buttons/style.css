@@ -24,11 +24,8 @@
 
 .btn.light {
   background-color: white;
-  /* padding: 13px 75px; */
-  /* border-radius: 4px; */
   border: 1px solid #4878a6;
   color: #4878a6;
-  /* cursor: pointer; */
 }
 .btn.light.gray {
   border: 1px solid #c8cacb;
@@ -54,36 +51,30 @@
   min-width: 48px;
   min-height: 48px;
 }
-/* .abs {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-.abs-2{
-    position: fixed;
-    bottom: 20px;
-    right: 80px;
-}
-@media (max-width: 768px) {
-    .abs{
-        bottom: 90px;
-        right: 5px;
-    }
-    .abs-2{
-        bottom: 90px;
-        right: 65px;
-    }
-} */
 .admin__buttons {
   position: fixed;
   bottom: 20px;
   right: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: flex-end;
+  flex-direction: row-reverse;
 }
-/* .admin__buttons.add {
-  flex-direction: column;
-  height: 120px;
-  right: 80px;
-} */
+@media (max-width: 768px) {
+  .admin__buttons {
+    bottom: 90px;
+    right: 5px;
+  }
+}
+.add__buttons {
+  display: none;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.parrent:hover + .add__buttons {
+  display: flex;
+}
+.add__buttons:hover {
+  display: flex;
+}

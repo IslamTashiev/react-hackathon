@@ -8,21 +8,24 @@ import { ScrollToTop } from "./components/Route/ScrollToTop";
 import { SequireAdminRoutes } from "./components/Route/SequireAdminRoutes";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+import { ModalContextProvider } from "./context/modalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AppContextProvider>
-        <SequireAdminRoutes>
-          <ScrollToTop>
-            <div className='wrapper'>
-              <Header />
-              <App />
-              <Footer />
-            </div>
-          </ScrollToTop>
-        </SequireAdminRoutes>
+        <ModalContextProvider>
+          <SequireAdminRoutes>
+            <ScrollToTop>
+              <div className='wrapper'>
+                <Header />
+                <App />
+                <Footer />
+              </div>
+            </ScrollToTop>
+          </SequireAdminRoutes>
+        </ModalContextProvider>
       </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>,

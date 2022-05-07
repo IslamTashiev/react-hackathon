@@ -3,8 +3,10 @@ import { appContext } from "../../context/appContext";
 import closeIcon from "../../assets/images/close-icon.svg";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-export const SearchModalBar = ({ isActive, handleChangeModal }) => {
+import { modalContext } from "../../context/modalContext";
+export const SearchModalBar = ({ handleChangeModal }) => {
   const { searchProduct, searchedProducts } = useContext(appContext);
+  const { changeSearchState, search } = useContext(modalContext);
   const [term, setTerm] = useState("");
   const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ export const SearchModalBar = ({ isActive, handleChangeModal }) => {
   });
 
   return (
-    <div className={`search__window modal__window ${isActive ? "active" : ""}`}>
+    <div className={`search__window modal__window ${search ? "active" : ""}`}>
       <div className='search__bar'>
         <div className='search__bar-content container'>
           <form onSubmit={handleSubmit}>
@@ -57,7 +59,7 @@ export const SearchModalBar = ({ isActive, handleChangeModal }) => {
             <p>Поиск</p>
             <img
               className='close-icon'
-              onClick={handleChangeModal}
+              onClick={changeSearchState}
               src={closeIcon}
             />
           </div>

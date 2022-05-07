@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 export const HeaderIcons = () => {
   return (
     <>
-      {/* <img className='header__icon' src={eyeIcon} /> */}
       <Link to='/user/favorite'>
         <img className='header__icon' src={hearthIcon} />
       </Link>

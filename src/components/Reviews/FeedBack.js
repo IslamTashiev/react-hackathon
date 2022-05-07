@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { modalContext } from "../../context/modalContext";
 import { useUser } from "../../hooks/useUser";
 import { Button } from "../Buttons/Button";
 import { LoginModalWindow } from "../ModalWindows/LoginModalWindow";
@@ -6,46 +7,40 @@ import { ReviewForm } from "./ReviewForm";
 
 export const FeedBack = () => {
   const [showForm, setShowForm] = useState(false);
-  const [activeLoginModal, setActiveLoginModal] = useState(true);
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
+
+  const { changeSigninState } = useContext(modalContext);
 
   const user = useUser();
 
-  const handleChangeLoginModal = () => {
-    setActiveLoginModal(!activeLoginModal);
-    setShowForm(!showForm);
+  const handleShowForm = () => {
+    if (!user) {
+      changeSigninState();
+    } else {
+      setShowForm(!showForm);
+    }
   };
 
-  const handleShowForm = () => {
-    setShowForm(!showForm);
-  };
+  const item = (
+    <div className='feedback '>
+      <div className='feedback__title'>Напишите своё мнение о товаре</div>
+      <div className='feedback__subtitle'>
+        Сделайте выбор других покупалетей легче
+      </div>
+      <div onClick={handleShowForm}>
+        <Button text='Написать отзыв' defaultClassName='feedback__btn' />
+      </div>
+    </div>
+  );
 
   return (
     <>
       <div className='feed'>
         {!showForm ? (
-          <div className='feedback '>
-            <div className='feedback__title'>Напишите своё мнение о товаре</div>
-            <div className='feedback__subtitle'>
-              Сделайте выбор других покупалетей легче
-            </div>
-            <div onClick={handleShowForm}>
-              <Button text='Написать отзыв' defaultClassName='feedback__btn' />
-            </div>
-          </div>
+          <>{item}</>
         ) : (
           <>
-            {!user ? (
-              <>
-                <LoginModalWindow
-                  handleChangeModal={handleChangeLoginModal}
-                  isActive={activeLoginModal || showForm}
-                  // handleChangeRegisterModal={handleChangeRegisterModal}
-                />
-              </>
-            ) : (
-              <ReviewForm handleShowForm={handleShowForm} />
-            )}
+            {/* <LoginModalWindow /> */}
+            <ReviewForm handleShowForm={handleShowForm} />
           </>
         )}
       </div>

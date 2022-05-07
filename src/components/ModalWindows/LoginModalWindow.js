@@ -8,14 +8,11 @@ import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../firebase/config";
 
 import "./style.css";
-import { appContext } from "../../context/appContext";
-import { serverTimestamp } from "firebase/firestore";
+import { modalContext } from "../../context/modalContext";
 
-export const LoginModalWindow = ({
-  isActive,
-  handleChangeModal,
-  handleChangeRegisterModal,
-}) => {
+export const LoginModalWindow = () => {
+  const { signin, changeSigninState, changeSignupState } =
+    useContext(modalContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +23,7 @@ export const LoginModalWindow = ({
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("Вы вошли в аккаунт:", result.user.email);
-        handleChangeModal();
+        changeSigninState();
       })
       .catch((error) => {
         console.log("Server error", error.message);
@@ -38,7 +35,7 @@ export const LoginModalWindow = ({
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log("Вы войшли в аккаунт:" + userCredential.user.displayName);
-        handleChangeModal();
+        changeSigninState();
       })
       .catch((e) => {
         console.log(e.message);
@@ -46,12 +43,12 @@ export const LoginModalWindow = ({
   };
 
   return (
-    <div className={`login__modal modal__window ${isActive ? "active" : ""}`}>
+    <div className={`login__modal modal__window ${signin ? "active" : ""}`}>
       <div className='login__modal-content'>
         <div className='content__header'>
           <div className='header__text'>Вход</div>
           <img
-            onClick={handleChangeModal}
+            onClick={changeSigninState}
             className='close-icon'
             src={closeIcon}
           />
@@ -90,8 +87,8 @@ export const LoginModalWindow = ({
           </div>
           <div
             onClick={() => {
-              handleChangeRegisterModal();
-              handleChangeModal();
+              changeSignupState();
+              changeSigninState();
             }}
             className='form__text center'>
             Зарегистрироваться
