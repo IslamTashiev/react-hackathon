@@ -1,19 +1,24 @@
-import React, { useContext, useState } from "react";
-import { Button } from "../Buttons/Button";
-import { ButtonImg } from "../Buttons/ButtonImg";
+import React, { useContext } from "react";
 import hearthIcon from "../../assets/images/hearth.svg";
 import likeIcon from "../../assets/images/hearth-active.svg";
 import compareIcon from "../../assets/images/compare.svg";
 import cartIcon from "../../assets/images/cart-white.svg";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
-
-import "./style.css";
+import { Button } from "../Buttons/Button";
 import { Link } from "react-router-dom";
 import { appContext } from "../../context/appContext";
+import { ButtonImg } from "../Buttons/ButtonImg";
+import { useUser } from "../../hooks/useUser";
+import { modalContext } from "../../context/modalContext";
+
+import "./style.css";
 
 export const ProductItem = ({ product }) => {
   const { addToCart, setFavoriteProduct } = useContext(appContext);
+  const { changeSigninState } = useContext(modalContext);
+
+  const user = useUser();
 
   const categoryItem = [
     {
@@ -62,6 +67,14 @@ export const ProductItem = ({ product }) => {
     },
   ];
 
+  const handleLike = () => {
+    if (user) {
+      setFavoriteProduct(product);
+    } else {
+      changeSigninState();
+    }
+  };
+
   return (
     <div className='product__item'>
       <img className='item__img' src={product.imageURL} />
@@ -87,7 +100,7 @@ export const ProductItem = ({ product }) => {
       <div className='product__item-interface'>
         <div className='interface__price'>{product.price} ₽</div>
         <div className='interface__btns'>
-          <div onClick={() => setFavoriteProduct(product.id, product)}>
+          <div onClick={handleLike}>
             <ButtonImg
               defaultClassName='light gray'
               image={product.isLiked ? likeIcon : hearthIcon}

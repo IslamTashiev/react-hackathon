@@ -7,7 +7,7 @@ import { useUser } from "../hooks/useUser";
 const CardPage = () => {
   const [showOrder, setShowOrder] = React.useState(false);
 
-  const { cartItems, getCartItems, getProductsFromFirebase } =
+  const { cartItems, getCartItems, getProductsFromFirebase, getCart } =
     useContext(appContext);
   const user = useUser();
 
@@ -16,10 +16,8 @@ const CardPage = () => {
   };
 
   useEffect(() => {
-    getCartItems(user ? user.uid : "");
-    // getProductsFromFirebase();
-    console.log(cartItems);
-  }, [user]);
+    getCart();
+  }, []);
 
   return (
     <div className='container'>

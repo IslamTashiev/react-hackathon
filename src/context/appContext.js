@@ -13,11 +13,12 @@ import {
 } from "firebase/firestore";
 import { createContext, useReducer } from "react";
 import { db } from "../firebase/config";
+import { calcSubPrice, calcTotalPrice } from "../helpers/calcPrice";
 
 const INITIAL_STATE = {
   products: [],
   detailProduct: null,
-  cart: [],
+  cartItems: {},
   favorite: [],
   reviews: [],
   users: [],
@@ -39,10 +40,10 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         detailProduct: action.payload,
       };
-    case "SET_CART_ITEMS":
+    case "GET_CART":
       return {
         ...state,
-        cart: action.payload,
+        cartItems: action.payload,
       };
     case "FILTERED_PRODUCTS":
       return {
@@ -110,7 +111,6 @@ export default function AppContextProvider({ children }) {
       payload: data,
     });
   };
-
   const getCartItems = async (userId) => {
     const q = query(
       collection(db, "prodcuts"),
@@ -129,7 +129,6 @@ export default function AppContextProvider({ children }) {
       payload: data,
     });
   };
-
   const fetchCartItems = async (userId) => {
     const cartItems = state.products.filter((product) => {
       return product.inCart.filter((item) => {
@@ -141,10 +140,61 @@ export default function AppContextProvider({ children }) {
       payload: cartItems,
     });
   };
-  const addToCart = async (addedData) => {
-    const editedData = { ...addedData, count: 1 };
+  const getCart = () => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  };
+  const addToCart = async (product) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
 
-    await axios.post(`${URL}/card`, editedData);
+    let newProduct = {
+      item: product,
+      count: 1,
+      subPrice: 0,
+    };
+
+    let filteredCart = cart.products.filter(
+      (elem) => elem.item.id === product.id,
+    );
+    if (filteredCart.length > 0) {
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== product.id,
+      );
+    } else {
+      cart.products.push(newProduct);
+    }
+
+    newProduct.subPrice = calcSubPrice(newProduct);
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+  const changeProductCount = (count, id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.products.map((elem) => {
+      if (elem.item.id === id) {
+        elem.count = count;
+        elem.subPrice = calcSubPrice(elem);
+      }
+      return elem;
+    });
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    getCart();
   };
   const getFavoriteProducts = async () => {
     const productsSnapshot = await getDocs(collection(db, "products"));
@@ -172,8 +222,8 @@ export default function AppContextProvider({ children }) {
       payload: data,
     });
   };
-  const setFavoriteProduct = async (id, product) => {
-    const productRef = doc(db, "products", id);
+  const setFavoriteProduct = async (product) => {
+    const productRef = doc(db, "products", product.id);
     await updateDoc(productRef, { isLiked: !product.isLiked });
     getProductsFromFirebase();
   };
@@ -260,7 +310,7 @@ export default function AppContextProvider({ children }) {
       value={{
         products: state.products,
         detailProduct: state.detailProduct,
-        cartItems: state.cart,
+        cartItems: state.cartItems,
         reviews: state.reviews,
         favorite: state.favorite,
         searchedProducts: state.searchedProducts,
@@ -283,6 +333,8 @@ export default function AppContextProvider({ children }) {
         getCartItems,
         getNews,
         getDetailNews,
+        changeProductCount,
+        getCart,
       }}>
       {children}
     </appContext.Provider>

@@ -9,6 +9,8 @@ import { auth, provider } from "../../firebase/config";
 
 import "./style.css";
 import { modalContext } from "../../context/modalContext";
+import { appContext } from "../../context/appContext";
+import { useUser } from "../../hooks/useUser";
 
 export const LoginModalWindow = () => {
   const { signin, changeSigninState, changeSignupState } =

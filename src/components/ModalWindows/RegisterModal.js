@@ -6,6 +6,8 @@ import "./style.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { modalContext } from "../../context/modalContext";
+import { useUser } from "../../hooks/useUser";
+import { appContext } from "../../context/appContext";
 
 export const RegisterModal = () => {
   const [email, setEmail] = useState("");

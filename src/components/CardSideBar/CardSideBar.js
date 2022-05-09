@@ -12,17 +12,18 @@ const sibeBars = [
     delivery: "бесплатно",
     subtitle: "К оплате",
     price: "28 500",
+    id: 1,
   },
 ];
 
 const CardSideBar = () => {
   return (
-    <div className="card-side-bar">
+    <div className='card-side-bar'>
       <Item sibeBars={sibeBars} />
       <Nextbtn />
-      <div className="card-checkbox">
-        <div class="ui checkbox">
-          <input type="checkbox" name="example" />
+      <div className='card-checkbox'>
+        <div className='ui checkbox'>
+          <input type='checkbox' name='example' />
           <label>
             Подтверждая заказ, я принимаю условия пользовательского соглашения
           </label>

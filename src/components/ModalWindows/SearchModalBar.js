@@ -4,7 +4,7 @@ import closeIcon from "../../assets/images/close-icon.svg";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { modalContext } from "../../context/modalContext";
-export const SearchModalBar = ({ handleChangeModal }) => {
+export const SearchModalBar = () => {
   const { searchProduct, searchedProducts } = useContext(appContext);
   const { changeSearchState, search } = useContext(modalContext);
   const [term, setTerm] = useState("");
@@ -12,8 +12,8 @@ export const SearchModalBar = ({ handleChangeModal }) => {
 
   const navigateToSearchedProduct = (id) => {
     navigate(`/product/${id}`);
-    handleChangeModal();
     setTerm("");
+    changeSearchState();
   };
 
   useEffect(() => {
@@ -23,8 +23,8 @@ export const SearchModalBar = ({ handleChangeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setTerm("");
-    handleChangeModal();
     navigate(`/search/products/${term}`);
+    changeSearchState();
   };
 
   const renderedSearchItems = searchedProducts.map((searchItem) => {
