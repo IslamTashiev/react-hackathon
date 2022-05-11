@@ -95,27 +95,27 @@ export const CreateForm = () => {
               className='input'
             />
           </div>
-          <div className='create__input file'>
-            <img
-              src={productImage}
-              className={`added__iamge ${
-                showAddedPhoto && productImage ? "active" : ""
-              }`}
-            />
-            <label className='input__label'>Фотография товара</label>
-            <label
-              onMouseOver={showPhoto}
-              onMouseLeave={showPhoto}
-              className='input file'>
-              <h4>Закрепить</h4>
-              <img src={backtackIcon} />
-              <input
-                onChange={(e) => handleChange(e)}
-                type='file'
-                className='input'
+            <div className='create__input file'>
+              <img
+                src={productImage}
+                className={`added__iamge ${
+                  showAddedPhoto && productImage ? "active" : ""
+                }`}
               />
-            </label>
-          </div>
+              <label className='input__label'>Фотография товара</label>
+              <label
+                onMouseOver={showPhoto}
+                onMouseLeave={showPhoto}
+                className='input file'>
+                <h4>Закрепить</h4>
+                <img src={backtackIcon} />
+                <input
+                  onChange={(e) => handleChange(e)}
+                  type='file'
+                  className='input'
+                />
+              </label>
+            </div>
         </div>
         <div className='form__footer-item create__input'>
           <label className='input__label'>Характеристика</label>

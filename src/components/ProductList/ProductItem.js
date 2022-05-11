@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import hearthIcon from "../../assets/images/hearth.svg";
 import likeIcon from "../../assets/images/hearth-active.svg";
 import compareIcon from "../../assets/images/compare.svg";
@@ -6,7 +6,7 @@ import cartIcon from "../../assets/images/cart-white.svg";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import { Button } from "../Buttons/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { appContext } from "../../context/appContext";
 import { ButtonImg } from "../Buttons/ButtonImg";
 import { useUser } from "../../hooks/useUser";
@@ -15,10 +15,14 @@ import { modalContext } from "../../context/modalContext";
 import "./style.css";
 
 export const ProductItem = ({ product }) => {
-  const { addToCart, setFavoriteProduct } = useContext(appContext);
+  const [isLiked, setIsLiked] = useState(product.isLiked);
+
+  const { addToCart, setFavoriteProduct, getProductDetailFromFirebase } =
+    useContext(appContext);
   const { changeSigninState } = useContext(modalContext);
 
   const user = useUser();
+  const navigate = useNavigate();
 
   const categoryItem = [
     {
@@ -70,9 +74,14 @@ export const ProductItem = ({ product }) => {
   const handleLike = () => {
     if (user) {
       setFavoriteProduct(product);
+      setIsLiked(!isLiked);
     } else {
       changeSigninState();
     }
+  };
+  const handleShowDetail = () => {
+    navigate(`/product/${product.id}`);
+    getProductDetailFromFirebase(product.id);
   };
 
   return (
@@ -81,9 +90,9 @@ export const ProductItem = ({ product }) => {
       <div className='product__item-category'>
         {categoryItem[Number(product.category) - 1].title}
       </div>
-      <Link to={`/product/${product.id}`} className='products__item-title'>
+      <div onClick={handleShowDetail} className='products__item-title'>
         <p>{product.title}</p>
-      </Link>
+      </div>
       <div className='product__item-info'>
         <div className='info__raiting'>
           <img src={starIcon} />
@@ -103,7 +112,7 @@ export const ProductItem = ({ product }) => {
           <div onClick={handleLike}>
             <ButtonImg
               defaultClassName='light gray'
-              image={product.isLiked ? likeIcon : hearthIcon}
+              image={isLiked ? likeIcon : hearthIcon}
             />
           </div>
           <ButtonImg defaultClassName='light gray' image={compareIcon} />

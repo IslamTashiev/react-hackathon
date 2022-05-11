@@ -8,20 +8,19 @@ import productIcon from "../../assets/images/product.svg";
 
 export const AdminAddButton = () => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/admin/create/product");
-  };
 
   return (
     <>
       <div className='admin__buttons'>
         <ButtonImg image={addIcon} defaultClassName='abs parrent' />
         <div className='add__buttons'>
-          <div onClick={handleClick}>
+          <div onClick={() => navigate("/admin/create/product")}>
             <ButtonImg image={productIcon} defaultClassName='' />
           </div>
           <ButtonImg image={promotionIcon} defaultClassName='' />
-          <ButtonImg image={newsIcon} defaultClassName='' />
+          <div onClick={() => navigate("/admin/create/news")}>
+            <ButtonImg image={newsIcon} defaultClassName='' />
+          </div>
         </div>
       </div>
     </>

@@ -1,11 +1,9 @@
-import { format } from "date-fns";
 import React from "react";
+import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 const NewsItem = ({ item }) => {
-  let time = format(item.data.toDate(), "yyyy-mm-dd");
-
   return (
     <div className='news__items col-6'>
       <div className='news__item'>
@@ -18,7 +16,7 @@ const NewsItem = ({ item }) => {
               <div className='news__title'>{item.title}</div>
             </div>
 
-            <div className='news__subtitle'>{item.subtitle}</div>
+            <div className='news__subtitle'>{item.firstText}</div>
 
             <div className='news__footer'>
               <Link className='nav-link' to={`/news/${item.id}`}>
@@ -38,7 +36,9 @@ const NewsItem = ({ item }) => {
                   </svg>
                 </span>
               </Link>
-              <div className='news__data'> {time} </div>
+              <div className='news__data'>
+                {format(item.data.toDate(), "yyyy-mm-dd")}{" "}
+              </div>
             </div>
           </div>
         </div>

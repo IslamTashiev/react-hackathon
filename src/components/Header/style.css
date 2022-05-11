@@ -140,6 +140,10 @@
 .dropdown__item:hover{
     background: #DAE4ED;
 }
+.dropdown__item.active{
+    background: #DAE4ED;
+
+}
 .catalog__item-title{
     font-style: normal;
     font-weight: 500;

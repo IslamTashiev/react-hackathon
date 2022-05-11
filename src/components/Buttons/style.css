@@ -78,3 +78,6 @@
 .add__buttons:hover {
   display: flex;
 }
+.detail {
+  margin-left: 10px;
+}

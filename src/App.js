@@ -22,6 +22,7 @@ import ProfileHistory from "./views/ProfileHistory";
 import ProfileChangePass from "./views/ProfileChangePass";
 import NewsPage from "./views/NewsPage";
 import NewsDetail from "./components/News/NewsDetail";
+import { NewsCreatePage } from "./views/NewsCreatePage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path='/about' element={<AboutUsPage />} />
         <Route path='/admin/create/product' element={<ProdcutCreatePage />} />
         <Route path='/admin/update/product/:id' element={<UpdatePage />} />
+        <Route path='/admin/create/news' element={<NewsCreatePage />} />
         <Route
           path='/search/products/:searchedTerm'
           element={<SearchResultsPage />}

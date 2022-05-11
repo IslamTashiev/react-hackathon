@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import menuIcon0 from "../../assets/images/catalog-icons/menu-0.svg";
 import menuIcon1 from "../../assets/images/catalog-icons/menu-1.svg";
 import menuIcon2 from "../../assets/images/catalog-icons/menu-2.svg";
@@ -10,7 +10,7 @@ import menuIcon7 from "../../assets/images/catalog-icons/menu-7.svg";
 import menuIcon8 from "../../assets/images/catalog-icons/menu-8.svg";
 import menuIcon9 from "../../assets/images/catalog-icons/menu-9.svg";
 import menuIcon10 from "../../assets/images/catalog-icons/menu-10.svg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { modalContext } from "../../context/modalContext";
 const catalogItems = [
   {
@@ -71,17 +71,26 @@ const catalogItems = [
 ];
 export const CatologDropdown = () => {
   const { changeCatalogState, catalog } = useContext(modalContext);
+  const [activeItem, setActiveItem] = useState(0);
+
+  const navigate = useNavigate();
+
+  const handleActiveItem = (id) => {
+    setActiveItem(id);
+    navigate(`/category/${id}`);
+    changeCatalogState();
+  };
 
   const renderedItem = catalogItems.map((item) => {
     return (
       <div
-        onClick={changeCatalogState}
+        onClick={() => handleActiveItem(item.id)}
         key={item.title}
-        className='dropdown__item'>
-        <Link to={`/category/${item.id}`}>
+        className={`dropdown__item ${activeItem === item.id ? "active" : ""}`}>
+        <a>
           <img src={item.img} />
           <div className='catalog__item-title'>{item.title}</div>
-        </Link>
+        </a>
       </div>
     );
   });

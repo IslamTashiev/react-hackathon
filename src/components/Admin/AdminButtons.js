@@ -19,12 +19,12 @@ export const AdminButtons = ({ id }) => {
   };
 
   return (
-    <div className='admin__buttons'>
+    <div className='admin__buttons '>
       <div onClick={updateProduct}>
-        <ButtonImg defaultClassName='abs' image={editIcon} />
+        <ButtonImg defaultClassName='detail' image={editIcon} />
       </div>
       <div onClick={deleteProduct}>
-        <ButtonImg defaultClassName='abs-2' image={deleteIcon} />
+        <ButtonImg defaultClassName='' image={deleteIcon} />
       </div>
     </div>
   );

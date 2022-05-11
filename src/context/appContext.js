@@ -94,6 +94,7 @@ export default function AppContextProvider({ children }) {
     const data = newsSnapshot.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
     });
+    // console.log(newsSnapshot.docs[0].data());
 
     dispatch({
       type: "SET_NEWS",
@@ -304,6 +305,10 @@ export default function AppContextProvider({ children }) {
     const product = { ...updatedProduct, category: state.productCategory };
     await updateDoc(updateRef, product);
   };
+  const createNews = async (news) => {
+    const newsRef = collection(db, "news");
+    await addDoc(newsRef, news);
+  };
 
   return (
     <appContext.Provider
@@ -335,6 +340,7 @@ export default function AppContextProvider({ children }) {
         getDetailNews,
         changeProductCount,
         getCart,
+        createNews,
       }}>
       {children}
     </appContext.Provider>

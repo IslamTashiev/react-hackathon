@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { DetailDescription } from "./DetailDescription";
 import { ProductCharacter } from "./ProductCharacter";
 import { ProductReview } from "../Reviews/ProductReview";
 import "./style.css";
-import { appContext } from "../../context/appContext";
 
 export const Tabs = () => {
   const tabItems = [
@@ -20,7 +19,6 @@ export const Tabs = () => {
       label: "Отзывы",
     },
   ];
-  const { reviews } = useContext(appContext);
   const [activeItem, setActiveItem] = useState(1);
   const handleActiveTabItem = (id) => {
     setActiveItem(id);

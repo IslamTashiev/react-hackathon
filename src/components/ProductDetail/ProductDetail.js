@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import starIcon from "../../assets/images/star.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import compareIcon from "../../assets/images/compare.svg";
@@ -17,7 +17,21 @@ export const ProductDetail = () => {
     detailProduct: product,
     setFavoriteProduct,
     reviews,
+    getProductDetailFromFirebase,
   } = useContext(appContext);
+
+  const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    if (product) {
+      setIsLiked(product.isLiked);
+    }
+  }, []);
+
+  const handleIsLiked = () => {
+    setIsLiked(!isLiked);
+    setFavoriteProduct(product);
+  };
 
   return (
     <>
@@ -43,11 +57,10 @@ export const ProductDetail = () => {
                       </div>
                     </div>
                     <div className='interface__btns'>
-                      <div
-                        onClick={() => setFavoriteProduct(product.id, product)}>
+                      <div onClick={handleIsLiked}>
                         <ButtonImg
                           defaultClassName='light gray'
-                          image={product.isLiked ? likeIcon : hearthIcon}
+                          image={!isLiked ? likeIcon : hearthIcon}
                         />
                       </div>
                       <ButtonImg
